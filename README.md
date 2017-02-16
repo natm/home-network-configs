@@ -9,6 +9,7 @@ Configuration backups of our home network, spans 3 miles, provides Internet acce
 * Downstream networks for development [AS30746](http://bgp.he.net/AS30746), [AS60035](http://bgp.he.net/AS60035), [AS201624](http://bgp.he.net/AS201624).
 * Hardware:
  * Ubiquiti Edgerouters (ER-Pro8, ER-X and ERL)
+ * Ubiquiti Airfibre 5X + Powerbeam 300AC
  * Cisco 3750G
  * x86 Docker hosts announcing containers using BIRD.
 
