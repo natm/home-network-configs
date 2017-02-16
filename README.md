@@ -110,4 +110,4 @@ I am using the `slackdiff` hook to post to (Slack)[http://slack.com], generate a
 
 ## Questions?
 
-Contact me!
+Contact me! nat@nuqe.net
