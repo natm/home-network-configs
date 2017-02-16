@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 15:09:18 UTC Thu Feb 16 2017 by nat
-! NVRAM config last updated at 15:09:20 UTC Thu Feb 16 2017 by nat
+! Last configuration change at 15:27:49 UTC Thu Feb 16 2017 by nat
+! NVRAM config last updated at 15:27:50 UTC Thu Feb 16 2017 by nat
 !
 version 12.2
 no service pad
@@ -324,7 +324,7 @@ interface Vlan70
  ipv6 ospf 1 area 0
 !
 interface Vlan400
- description nat-test-5
+ description nat-test-8
  no ip address
 !
 interface Vlan991
