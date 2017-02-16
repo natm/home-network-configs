@@ -104,7 +104,7 @@ vars:
 
 ## Slackhook
 
-I am using the `slackdiff` hook to post to (Slack)[http://slack.com], generate a bot token and include it in your config.
+I am using the `slackdiff` hook to post to [Slack](http://slack.com), to use it generate a bot token and include it in your config.
 
 ![Screenshot](https://raw.github.com/natm/home-network-configs/master/docs/screenshot_slackdiff.png)
 
