@@ -1,6 +1,17 @@
-# home-network-configs
+# Home network configs
 
 Configuration backups of our home network, spans 3 miles, provides Internet access to 6 families in West Wales.
+
+* [AS60036](http://bgp.he.net/AS60036) announcing AS-LLWYNYGORRAS
+* BGP v4 + v6 transit from [AS20712](http://bgp.he.net/AS20712).
+* OSPF and iBGP full mesh internally of 14 devices.
+* Multiple anycast internal DNS resolvers
+* Downstream networks for development [AS30746](http://bgp.he.net/AS30746), [AS60035](http://bgp.he.net/AS60035), [AS201624](http://bgp.he.net/AS201624).
+* Hardware:
+ * Ubiquiti Edgerouters (ER-Pro8, ER-X and ERL)
+ * Cisco 3750G
+ * x86 Docker hosts announcing containers using BIRD.
+
 
 Using [Oxidized](https://github.com/ytti/oxidized), running in [Docker](https://github.com/ytti/oxidized/blob/master/Dockerfile). Config changes are pushed to this repo and also notifications are posted to our home [Slack](http://slack.com) instance.
 
