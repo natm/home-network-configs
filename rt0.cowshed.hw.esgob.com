@@ -338,6 +338,22 @@ firewall {
                 related disable
             }
         }
+        rule 18 {
+            action accept
+            description "temporary DNS on loft"
+            destination {
+                address 185.61.112.37
+                port 53
+            }
+            log disable
+            protocol tcp_udp
+            state {
+                established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
     }
     name transit4_local {
         default-action drop
