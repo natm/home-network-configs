@@ -18,7 +18,6 @@ interfaces {
         duplex auto
         ip {
             ospf {
-                cost 50
                 dead-interval 40
                 hello-interval 10
                 network point-to-point
@@ -29,7 +28,6 @@ interfaces {
         }
         ipv6 {
             ospfv3 {
-                cost 50
             }
         }
         poe {
@@ -44,12 +42,18 @@ interfaces {
         duplex auto
         ip {
             ospf {
+                cost 50
                 dead-interval 40
                 hello-interval 10
                 network point-to-point
                 priority 1
                 retransmit-interval 5
                 transmit-delay 1
+            }
+        }
+        ipv6 {
+            ospfv3 {
+                cost 50
             }
         }
         poe {
