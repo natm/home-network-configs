@@ -501,7 +501,7 @@ interfaces {
         vif 128 {
             address 185.19.148.129/29
             address 2a04:ebc0:748:101::1/64
-            description "Cust: Les and Ann Morris"
+            description les-ann
             mtu 1500
         }
     }
