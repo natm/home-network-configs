@@ -354,6 +354,22 @@ firewall {
                 related disable
             }
         }
+        rule 19 {
+            action accept
+            description "legacy anycast DNS"
+            destination {
+                address 193.47.147.100
+                port 53
+            }
+            log disable
+            protocol tcp_udp
+            state {
+                established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
     }
     name transit4_local {
         default-action drop
