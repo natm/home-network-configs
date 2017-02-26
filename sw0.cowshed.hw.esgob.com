@@ -48,6 +48,7 @@ ip default-gateway 185.19.148.113
 sntp server 185.61.112.98 
 timesync sntp 
 sntp unicast 
+logging 185.61.112.99 
 snmp-server community <configuration removed>
 vlan 1 
    name "DEFAULT_VLAN" 
