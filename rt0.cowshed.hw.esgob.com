@@ -1234,7 +1234,7 @@ system {
     name-server 185.19.148.98
     name-server 185.61.112.98
     ntp {
-        server 185.61.112.98 {
+        server 185.61.112.97 {
         }
     }
     offload {
