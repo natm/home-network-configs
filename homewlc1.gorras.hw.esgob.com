@@ -102,6 +102,9 @@ interface dhcp  management primary 185.61.112.93
 interface vlan dragonbackup 9
 interface vlan wificlients-private 14
 interface vlan wificlients-visitors 10
+interface nasid Cisco_e0:4b:84 dragonbackup
+interface nasid Cisco_e0:4b:84 wificlients-private
+interface nasid Cisco_e0:4b:84 wificlients-visitors
 interface port dragonbackup 1
 interface port management 1
 interface port wificlients-private 1
@@ -146,6 +149,8 @@ wlan apgroup interface-mapping add default-group 4 dragonbackup
 wlan apgroup nac-snmp disable default-group 1
 wlan apgroup nac-snmp disable default-group 2
 wlan apgroup nac-snmp disable default-group 4
+logging syslog host 185.61.112.99
+logging syslog level 2
 memory monitor errors enable
 memory monitor leak thresholds 10000 30000
 Outdoor Mesh Ext.UNII B Domain channels: Disable
@@ -220,7 +225,7 @@ switchconfig strong-pwd minimum lower-case 0
 switchconfig strong-pwd minimum digits-chars 0
 switchconfig strong-pwd minimum special-chars 0
 switchconfig strong-pwd min-length 3
-sysname Cisco_e0:4b:84
+sysname homewlc1
 stats-timer realtime 5
 stats-timer normal 180
 time ntp interval 3600
