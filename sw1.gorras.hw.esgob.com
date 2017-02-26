@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 18:21:46 UTC Sat Feb 25 2017 by nat
-! NVRAM config last updated at 18:21:23 UTC Sat Feb 25 2017 by nat
+! Last configuration change at 11:50:47 UTC Sun Feb 26 2017 by nat
+! NVRAM config last updated at 11:50:48 UTC Sun Feb 26 2017 by nat
 !
 version 12.2
 no service pad
@@ -469,7 +469,7 @@ no ip http secure-server
 ip bgp-community new-format
 !
 logging source-interface Loopback0
-logging host 185.61.112.37 transport udp port 5140
+logging 185.61.112.99
 ipv6 route 2A04:EBC0:766:2:1::/112 Null0
 ipv6 route 2A04:EBC0:766:2:2::/112 Null0
 ipv6 route 2A04:EBC0:766:2:4::/112 Null0
@@ -530,7 +530,6 @@ line vty 5 15
  login local
 !
 ntp source Loopback0
-ntp server 185.61.112.98
-ntp server 185.19.148.98
+ntp server 185.61.112.97
 end
 
