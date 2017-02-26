@@ -45,7 +45,7 @@ interface 14
    name "Cust: Les and Ann Morris" 
 exit
 ip default-gateway 185.19.148.113 
-sntp server 185.61.112.98 
+sntp server 185.61.112.97 
 timesync sntp 
 sntp unicast 
 logging 185.61.112.99 
