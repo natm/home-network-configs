@@ -650,13 +650,7 @@ system {
     name-server 185.61.112.98
     name-server 185.19.148.98
     ntp {
-        server 0.ubnt.pool.ntp.org {
-        }
-        server 1.ubnt.pool.ntp.org {
-        }
-        server 2.ubnt.pool.ntp.org {
-        }
-        server 3.ubnt.pool.ntp.org {
+        server 185.61.112.97 {
         }
     }
     syslog {
