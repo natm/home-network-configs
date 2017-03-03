@@ -1135,6 +1135,126 @@ protocols {
             next-hop-interface pppoe1 {
             }
         }
+        route 2.91.150.196/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 23.121.39.118/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 24.218.134.41/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 50.171.57.155/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 51.39.104.63/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 67.1.203.106/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 73.69.110.74/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 73.231.144.189/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 80.241.218.216/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 82.26.151.227/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 84.46.122.214/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 87.109.145.95/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 98.206.149.108/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 103.230.138.242/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 104.8.130.222/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 104.156.236.55/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 107.152.104.154/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 118.211.24.228/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 143.179.27.179/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 167.57.114.27/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 172.56.20.21/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 172.110.128.140/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 174.108.107.19/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
+        route 184.158.75.30/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
         route 185.19.148.0/24 {
             blackhole {
             }
@@ -1151,8 +1271,18 @@ protocols {
             blackhole {
             }
         }
+        route 186.129.138.69/32 {
+            blackhole {
+                description anycastddos
+            }
+        }
         route 192.0.2.1/32 {
             blackhole {
+            }
+        }
+        route 195.147.56.40/32 {
+            blackhole {
+                description anycastddos
             }
         }
         route6 2A04:EBC0:748::/48 {
