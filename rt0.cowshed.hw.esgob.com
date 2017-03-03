@@ -1155,6 +1155,14 @@ protocols {
             blackhole {
             }
         }
+        route 193.47.147.153/32 {
+            blackhole {
+            }
+        }
+        route 193.47.147.164/32 {
+            blackhole {
+            }
+        }
         route6 2A04:EBC0:748::/48 {
             blackhole {
             }
