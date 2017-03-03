@@ -568,6 +568,13 @@ interfaces {
     }
 }
 policy {
+    community-list 66 {
+        description rtbh-in
+        rule 1 {
+            action permit
+            regex 60036:666
+        }
+    }
     community-list 100 {
         description transit-out
         rule 1 {
@@ -660,6 +667,19 @@ policy {
             action permit
             set {
                 community "60036:4004 60036:8000 60036:8001"
+            }
+        }
+    }
+    route-map rtbh-in {
+        rule 1 {
+            action permit
+            match {
+                community {
+                    community-list 66
+                }
+            }
+            set {
+                ip-next-hop 192.0.2.1
             }
         }
     }
@@ -1128,6 +1148,10 @@ protocols {
             }
         }
         route 185.19.148.112/28 {
+            blackhole {
+            }
+        }
+        route 192.0.2.1/32 {
             blackhole {
             }
         }
