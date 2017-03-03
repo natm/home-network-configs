@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 00:05:36 UTC Fri Mar 3 2017 by nat
-! NVRAM config last updated at 11:50:48 UTC Sun Feb 26 2017 by nat
+! Last configuration change at 00:23:35 UTC Fri Mar 3 2017 by nat
+! NVRAM config last updated at 00:23:37 UTC Fri Mar 3 2017 by nat
 !
 version 12.2
 no service pad
@@ -449,7 +449,9 @@ router bgp 60036
  exit-address-family
 !
 ip classless
+ip route 54.230.57.176 255.255.255.255 192.0.2.1 tag 666
 ip route 66.67.86.255 255.255.255.255 192.0.2.1 tag 666
+ip route 84.28.128.245 255.255.255.255 Null0 tag 666
 ip route 89.129.71.78 255.255.255.255 192.0.2.1 tag 666
 ip route 113.17.184.150 255.255.255.255 192.0.2.1 tag 666
 ip route 185.61.112.20 255.255.255.255 192.0.2.1 tag 666
@@ -512,7 +514,8 @@ route-map originated-internal-v6-map permit 10
 route-map rtbh-v4-map permit 10
  match tag 666
  set ip next-hop 192.0.2.1
- set community 60036:666 60036:4003
+ set origin igp
+ set community 60036:666 60036:4003 no-export
 !
 route-map transit-dragonwifi-v4-in-map permit 10
  set local-preference 150
