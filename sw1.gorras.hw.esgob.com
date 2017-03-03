@@ -7,7 +7,7 @@
 ! 
 ! 
 !
-! Last configuration change at 11:50:47 UTC Sun Feb 26 2017 by nat
+! Last configuration change at 00:05:36 UTC Fri Mar 3 2017 by nat
 ! NVRAM config last updated at 11:50:48 UTC Sun Feb 26 2017 by nat
 !
 version 12.2
@@ -449,6 +449,9 @@ router bgp 60036
  exit-address-family
 !
 ip classless
+ip route 66.67.86.255 255.255.255.255 192.0.2.1 tag 666
+ip route 89.129.71.78 255.255.255.255 192.0.2.1 tag 666
+ip route 113.17.184.150 255.255.255.255 192.0.2.1 tag 666
 ip route 185.61.112.20 255.255.255.255 192.0.2.1 tag 666
 ip route 185.61.112.32 255.255.255.224 Null0
 ip route 185.61.112.80 255.255.255.252 Null0
@@ -463,6 +466,7 @@ ip route 185.61.113.160 255.255.255.240 Null0
 ip route 185.61.113.176 255.255.255.240 Null0
 ip route 185.61.113.192 255.255.255.192 Null0
 ip route 192.0.2.1 255.255.255.255 Null0
+ip route 193.250.10.150 255.255.255.255 192.0.2.1 tag 666
 no ip http server
 no ip http secure-server
 !
