@@ -1412,6 +1412,11 @@ system {
                 level debug
             }
         }
+        host 185.61.112.99 {
+            facility all {
+                level info
+            }
+        }
     }
     time-zone UTC
     traffic-analysis {
