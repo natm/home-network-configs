@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! No configuration change since last restart
-! NVRAM config last updated at 19:24:18 UTC Sun Mar 5 2017 by nat
+! Last configuration change at 23:45:52 UTC Sun Mar 5 2017 by nat
+! NVRAM config last updated at 23:45:54 UTC Sun Mar 5 2017 by nat
 !
 version 12.2
 no service pad
@@ -36,6 +36,8 @@ ip domain-name hw.esgob.com
 !
 !
 ip multicast-routing distributed
+login on-failure log
+login on-success log
 ipv6 unicast-routing
 !
 !
