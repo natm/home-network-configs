@@ -7,8 +7,7 @@
 ! 
 ! 
 !
-! Last configuration change at 00:23:35 UTC Fri Mar 3 2017 by nat
-! NVRAM config last updated at 00:23:37 UTC Fri Mar 3 2017 by nat
+! No configuration change since last restart
 !
 version 12.2
 no service pad
