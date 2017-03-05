@@ -102,9 +102,6 @@ interface dhcp  management primary 185.61.112.93
 interface vlan dragonbackup 9
 interface vlan wificlients-private 14
 interface vlan wificlients-visitors 10
-interface nasid Cisco_e0:4b:84 dragonbackup
-interface nasid Cisco_e0:4b:84 wificlients-private
-interface nasid Cisco_e0:4b:84 wificlients-visitors
 interface port dragonbackup 1
 interface port management 1
 interface port wificlients-private 1
