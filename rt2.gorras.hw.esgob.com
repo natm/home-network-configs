@@ -298,6 +298,8 @@ protocols {
         area 0.0.0.0 {
             interface lo
             interface eth0
+        }
+        area 0.0.0.1 {
             interface eth4
         }
         parameters {
