@@ -1162,10 +1162,6 @@ protocols {
             blackhole {
             }
         }
-        route6 2a04:ebc0:748:2:3::/112 {
-            blackhole {
-            }
-        }
         route6 2a04:ebc0:748:201::/64 {
             blackhole {
             }
