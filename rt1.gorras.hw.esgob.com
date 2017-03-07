@@ -226,36 +226,6 @@ protocols {
             remote-as 60036
             update-source 185.61.112.70
         }
-        neighbor 185.19.148.2 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.19.149.1 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.19.149.2 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.19.149.3 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.61.112.64 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
@@ -263,24 +233,6 @@ protocols {
             update-source 185.61.112.70
         }
         neighbor 185.61.112.66 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.61.112.67 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.61.112.68 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.70
-        }
-        neighbor 185.61.112.69 {
             maximum-prefix 1000
             nexthop-self
             remote-as 60036
