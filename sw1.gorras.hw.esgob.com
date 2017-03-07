@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 21:39:35 UTC Tue Mar 7 2017 by nat
-! NVRAM config last updated at 21:39:43 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 21:40:30 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 21:47:50 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -322,9 +322,8 @@ interface Vlan70
  description proxmox1 linknet
  ip address 185.61.112.85 255.255.255.252
  ip ospf network point-to-point
- shutdown
  ipv6 address 2A04:EBC0:766:2:2::1/112
- ipv6 ospf 1 area 0
+ ipv6 ospf 1 area 1
 !
 interface Vlan400
  description nat-test-18
