@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 13:08:27 UTC Tue Mar 7 2017 by nat
-! NVRAM config last updated at 05:00:40 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 13:32:15 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 13:17:40 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -499,9 +499,6 @@ route-map rtbh-v4-map permit 10
  set ip next-hop 192.0.2.1
  set origin igp
  set community 60036:666 60036:4003 no-export
-!
-route-map transit-dragonwifi-v4-in-map permit 10
- set local-preference 150
 !
 route-map originated-container-v4-map permit 10
  set community 60036:4003 60036:8000 60036:8003
