@@ -785,9 +785,7 @@ protocols {
             update-source 185.19.150.68
         }
         neighbor 185.19.148.42 {
-            nexthop-self
-            remote-as 60036
-            route-reflector-client
+            remote-as 65534
         }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
@@ -1139,10 +1137,6 @@ protocols {
             }
         }
         route 185.19.148.32/30 {
-            blackhole {
-            }
-        }
-        route 185.19.148.40/30 {
             blackhole {
             }
         }
