@@ -7,7 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 02:45:32 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 03:24:08 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 03:24:09 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -363,20 +364,11 @@ router bgp 60036
  neighbor 2A04:EBC0:766:1::72 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:2:5::2 remote-as 60035
  neighbor 185.19.148.1 peer-group ibgp-v4
- neighbor 185.19.148.2 peer-group ibgp-v4
- neighbor 185.19.149.1 peer-group ibgp-v4
- neighbor 185.19.149.2 peer-group ibgp-v4
- neighbor 185.19.149.3 peer-group ibgp-v4
- neighbor 185.61.112.64 peer-group ibgp-v4
  neighbor 185.61.112.66 peer-group ibgp-v4
- neighbor 185.61.112.67 peer-group ibgp-v4
- neighbor 185.61.112.68 peer-group ibgp-v4
- neighbor 185.61.112.69 peer-group ibgp-v4
  neighbor 185.61.112.70 peer-group ibgp-v4
  neighbor 185.61.112.71 peer-group ibgp-v4
  neighbor 185.61.112.72 peer-group ibgp-v4
  neighbor 185.61.112.82 remote-as 65534
- neighbor 185.61.112.98 remote-as 60035
  !
  address-family ipv4
   redistribute static route-map rtbh-v4-map
@@ -384,21 +376,11 @@ router bgp 60036
   neighbor ibgp-v4 next-hop-self
   neighbor ibgp-v4 maximum-prefix 1000
   neighbor 185.19.148.1 activate
-  neighbor 185.19.148.2 activate
-  neighbor 185.19.149.1 activate
-  neighbor 185.19.149.2 activate
-  neighbor 185.19.149.3 activate
-  neighbor 185.61.112.64 activate
   neighbor 185.61.112.66 activate
-  neighbor 185.61.112.67 activate
-  neighbor 185.61.112.68 activate
-  neighbor 185.61.112.69 activate
   neighbor 185.61.112.70 activate
   neighbor 185.61.112.71 activate
   neighbor 185.61.112.72 activate
   neighbor 185.61.112.82 activate
-  neighbor 185.61.112.98 activate
-  neighbor 185.61.112.98 route-map downstream-60035-in-v4-map in
   no auto-summary
   no synchronization
   network 185.61.112.1 mask 255.255.255.255 route-map originated-container-v4-map
