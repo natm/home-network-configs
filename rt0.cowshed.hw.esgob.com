@@ -784,38 +784,8 @@ protocols {
             }
             update-source 185.19.150.68
         }
-        neighbor 185.19.148.2 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
         neighbor 185.19.148.42 {
             remote-as 65534
-        }
-        neighbor 185.19.149.1 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.19.149.2 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.19.149.3 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.61.112.64 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
         }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
@@ -824,24 +794,6 @@ protocols {
             update-source 185.19.148.1
         }
         neighbor 185.61.112.66 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.61.112.67 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.61.112.68 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.19.148.1
-        }
-        neighbor 185.61.112.69 {
             maximum-prefix 1000
             nexthop-self
             remote-as 60036
@@ -1048,6 +1000,9 @@ protocols {
             maximum-prefix 500
             remote-as 20712
             remove-private-as
+            soft-reconfiguration {
+                inbound
+            }
             update-source 2a04:ec40:e004::1
         }
         neighbor 2001:8b0:0:53::62 {
@@ -1064,6 +1019,9 @@ protocols {
             maximum-prefix 500
             remote-as 20712
             remove-private-as
+            soft-reconfiguration {
+                inbound
+            }
             update-source 2a04:ec40:e004::1
         }
         network 185.19.148.0/24 {
