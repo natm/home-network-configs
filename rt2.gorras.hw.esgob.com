@@ -444,9 +444,12 @@ service {
                 }
             }
         }
+        use-dnsmasq disable
     }
     gui {
+        http-port 80
         https-port 443
+        older-ciphers enable
     }
     lldp {
         interface all {
@@ -501,6 +504,7 @@ system {
         }
     }
     offload {
+        hwnat disable
         ipsec enable
         ipv4 {
             forwarding enable
