@@ -81,8 +81,6 @@ interfaces {
         }
     }
     ethernet eth2 {
-        address 185.61.113.78/30
-        address 2a04:ebc0:766:2:24::2/112
         description "temp to sw0"
         duplex auto
         ip {
@@ -518,7 +516,6 @@ protocols {
             interface eth1
             interface eth4
             interface eth0
-            interface eth2
         }
         parameters {
             router-id 185.61.112.70
