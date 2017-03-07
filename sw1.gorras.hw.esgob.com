@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 03:24:08 UTC Tue Mar 7 2017 by nat
-! NVRAM config last updated at 03:24:09 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 04:30:02 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 04:21:26 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -295,8 +295,10 @@ interface Vlan29
  description to-sw4-in-woods
  ip address 185.61.112.90 255.255.255.252
  ip ospf network point-to-point
+!
+interface Vlan30
+ no ip address
  ipv6 address 2A04:EBC0:766:2:3::2/112
- ipv6 ospf network point-to-point
  ipv6 ospf 1 area 0
 !
 interface Vlan41
