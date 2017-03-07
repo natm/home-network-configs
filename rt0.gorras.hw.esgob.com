@@ -205,20 +205,6 @@ protocols {
             }
             update-source lo
         }
-        neighbor 2a04:ebc0:766:1::64 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
         neighbor 2a04:ebc0:766:1::65 {
             address-family {
                 ipv6-unicast {
