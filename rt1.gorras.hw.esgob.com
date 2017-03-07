@@ -27,7 +27,15 @@ interfaces {
             }
         }
         ipv6 {
+            dup-addr-detect-transmits 1
             ospfv3 {
+                cost 1
+                dead-interval 40
+                hello-interval 10
+                instance-id 0
+                priority 1
+                retransmit-interval 5
+                transmit-delay 1
             }
         }
         poe {
@@ -52,8 +60,15 @@ interfaces {
             }
         }
         ipv6 {
+            dup-addr-detect-transmits 1
             ospfv3 {
-                cost 50
+                cost 60
+                dead-interval 40
+                hello-interval 10
+                instance-id 0
+                priority 1
+                retransmit-interval 5
+                transmit-delay 1
             }
         }
         poe {
