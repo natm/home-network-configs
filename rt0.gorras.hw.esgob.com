@@ -198,66 +198,11 @@ protocols {
                     nexthop-self
                 }
             }
+            no-activate
             remote-as 60036
             route-map {
                 import deny-all-v4
             }
-            update-source lo
-        }
-        neighbor 2a04:ebc0:748:1::2 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
-        neighbor 2a04:ebc0:749:1::1 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
-        neighbor 2a04:ebc0:749:1::2 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
-        neighbor 2a04:ebc0:749:1::3 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
             update-source lo
         }
         neighbor 2a04:ebc0:766:1::64 {
@@ -281,6 +226,7 @@ protocols {
                     nexthop-self
                 }
             }
+            no-activate
             remote-as 60036
             route-map {
                 import deny-all-v4
@@ -294,52 +240,11 @@ protocols {
                     nexthop-self
                 }
             }
+            no-activate
             remote-as 60036
             route-map {
                 import deny-all-v4
             }
-            update-source lo
-        }
-        neighbor 2a04:ebc0:766:1::67 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
-        neighbor 2a04:ebc0:766:1::68 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
-            update-source lo
-        }
-        neighbor 2a04:ebc0:766:1::69 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            shutdown
             update-source lo
         }
         neighbor 2a04:ebc0:766:1::70 {
@@ -349,6 +254,7 @@ protocols {
                     nexthop-self
                 }
             }
+            no-activate
             remote-as 60036
             route-map {
                 import deny-all-v4
@@ -362,6 +268,7 @@ protocols {
                     nexthop-self
                 }
             }
+            no-activate
             remote-as 60036
             route-map {
                 import deny-all-v4
