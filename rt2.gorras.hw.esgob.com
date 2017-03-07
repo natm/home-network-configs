@@ -303,6 +303,7 @@ protocols {
             interface eth4.30
         }
         parameters {
+            abr-type cisco
             router-id 185.61.112.71
         }
     }
