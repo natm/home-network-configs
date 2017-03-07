@@ -287,6 +287,8 @@ protocols {
             network 185.61.112.71/32
             network 185.61.113.80/30
             network 185.61.113.72/30
+        }
+        area 1 {
             network 185.61.112.88/30
         }
         parameters {
