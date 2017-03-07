@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 04:30:02 UTC Tue Mar 7 2017 by nat
-! NVRAM config last updated at 04:21:26 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 04:49:59 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 04:32:38 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -92,7 +92,7 @@ interface GigabitEthernet1/0/1
  description to-rt2-at-pole
  switchport trunk encapsulation dot1q
  switchport trunk native vlan 29
- switchport trunk allowed vlan 29
+ switchport trunk allowed vlan 29,30
  switchport mode trunk
 !
 interface GigabitEthernet1/0/2
@@ -299,6 +299,7 @@ interface Vlan29
 interface Vlan30
  no ip address
  ipv6 address 2A04:EBC0:766:2:3::2/112
+ ipv6 ospf mtu-ignore
  ipv6 ospf 1 area 0
 !
 interface Vlan41
