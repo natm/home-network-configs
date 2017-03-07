@@ -63,7 +63,12 @@ interfaces {
         duplex auto
         ip {
             ospf {
+                dead-interval 40
+                hello-interval 10
                 network point-to-point
+                priority 1
+                retransmit-interval 5
+                transmit-delay 1
             }
         }
         poe {
@@ -465,6 +470,8 @@ protocols {
 }
 service {
     dhcp-server {
+        disabled false
+        hostfile-update disable
         shared-network-name pole-devices {
             authoritative enable
             subnet 185.61.113.144/28 {
