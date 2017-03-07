@@ -301,10 +301,8 @@ protocols {
             interface eth4
         }
         capability {
-            te
         }
         parameters {
-            abr-type cisco
             router-id 185.61.112.71
         }
     }
