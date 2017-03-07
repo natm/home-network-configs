@@ -257,7 +257,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:748:1::2 {
             address-family {
@@ -270,7 +270,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:749:1::1 {
             address-family {
@@ -283,7 +283,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:749:1::2 {
             address-family {
@@ -296,7 +296,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:749:1::3 {
             address-family {
@@ -309,7 +309,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::64 {
             address-family {
@@ -322,7 +322,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::65 {
             address-family {
@@ -335,7 +335,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::66 {
             address-family {
@@ -348,7 +348,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::67 {
             address-family {
@@ -361,7 +361,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::68 {
             address-family {
@@ -374,7 +374,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::69 {
             address-family {
@@ -387,7 +387,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::70 {
             address-family {
@@ -400,7 +400,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         neighbor 2a04:ebc0:766:1::72 {
             address-family {
@@ -413,7 +413,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
-            update-source 2a04:ebc0:766:1::71
+            update-source lo
         }
         network 185.61.113.128/28 {
             route-map originated-internal-v4-map
