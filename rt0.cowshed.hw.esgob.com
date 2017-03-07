@@ -785,6 +785,7 @@ protocols {
             update-source 185.19.150.68
         }
         neighbor 185.19.148.42 {
+            override-capability
             remote-as 65534
         }
         neighbor 185.61.112.65 {
