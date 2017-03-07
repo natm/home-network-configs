@@ -271,6 +271,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:749:1::1 {
@@ -284,6 +285,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:749:1::2 {
@@ -297,6 +299,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:749:1::3 {
@@ -310,6 +313,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:766:1::64 {
@@ -323,6 +327,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:766:1::65 {
@@ -362,6 +367,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:766:1::68 {
@@ -375,6 +381,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:766:1::69 {
@@ -388,6 +395,7 @@ protocols {
             route-map {
                 import deny-all-v4
             }
+            shutdown
             update-source 185.61.112.72
         }
         neighbor 2a04:ebc0:766:1::70 {
