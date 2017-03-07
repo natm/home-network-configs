@@ -58,6 +58,7 @@ interfaces {
     }
     ethernet eth4 {
         address 185.61.112.89/30
+        address 2a04:ebc0:766:2:3::1/112
         description to-shed-sw1
         duplex auto
         ip {
@@ -74,9 +75,6 @@ interfaces {
             output off
         }
         speed auto
-        vif 30 {
-            address 2A04:EBC0:766:2:3::1/112
-        }
     }
     loopback lo {
         address 185.61.112.71/32
@@ -300,7 +298,10 @@ protocols {
         area 0.0.0.0 {
             interface lo
             interface eth0
-            interface eth4.30
+            interface eth4
+        }
+        capability {
+            te
         }
         parameters {
             abr-type cisco
