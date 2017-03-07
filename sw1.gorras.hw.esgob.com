@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 21:15:17 UTC Tue Mar 7 2017 by nat
-! NVRAM config last updated at 13:17:40 UTC Tue Mar 7 2017 by nat
+! Last configuration change at 21:39:35 UTC Tue Mar 7 2017 by nat
+! NVRAM config last updated at 21:39:43 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -86,7 +86,7 @@ ip ssh version 2
 interface Loopback0
  ip address 185.61.112.65 255.255.255.255
  ipv6 address 2A04:EBC0:766:1::65/128
- ipv6 ospf 1 area 0
+ ipv6 ospf 1 area 1
 !
 interface GigabitEthernet1/0/1
  description to-rt2-at-pole
@@ -322,6 +322,7 @@ interface Vlan70
  description proxmox1 linknet
  ip address 185.61.112.85 255.255.255.252
  ip ospf network point-to-point
+ shutdown
  ipv6 address 2A04:EBC0:766:2:2::1/112
  ipv6 ospf 1 area 0
 !
@@ -335,9 +336,9 @@ interface Vlan991
 router ospf 1
  router-id 185.61.112.65
  log-adjacency-changes
- network 185.61.112.65 0.0.0.0 area 0
- network 185.61.112.84 0.0.0.3 area 0
- network 185.61.112.88 0.0.0.3 area 0
+ network 185.61.112.65 0.0.0.0 area 1
+ network 185.61.112.84 0.0.0.3 area 1
+ network 185.61.112.88 0.0.0.3 area 1
 !
 router bgp 60036
  no bgp default ipv4-unicast
@@ -349,19 +350,10 @@ router bgp 60036
  neighbor ibgp-v6 remote-as 60036
  neighbor ibgp-v6 update-source Loopback0
  neighbor 2A04:EBC0:748:1::1 peer-group ibgp-v6
- neighbor 2A04:EBC0:748:1::2 peer-group ibgp-v6
- neighbor 2A04:EBC0:749:1::1 peer-group ibgp-v6
- neighbor 2A04:EBC0:749:1::2 peer-group ibgp-v6
- neighbor 2A04:EBC0:749:1::3 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::64 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::66 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::67 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::68 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::69 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::70 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::71 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::72 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:2:5::2 remote-as 60035
  neighbor 185.19.148.1 peer-group ibgp-v4
  neighbor 185.61.112.66 peer-group ibgp-v4
  neighbor 185.61.112.70 peer-group ibgp-v4
@@ -403,20 +395,10 @@ router bgp 60036
   neighbor ibgp-v6 next-hop-self
   neighbor ibgp-v6 maximum-prefix 1000
   neighbor 2A04:EBC0:748:1::1 activate
-  neighbor 2A04:EBC0:748:1::2 activate
-  neighbor 2A04:EBC0:749:1::1 activate
-  neighbor 2A04:EBC0:749:1::2 activate
-  neighbor 2A04:EBC0:749:1::3 activate
-  neighbor 2A04:EBC0:766:1::64 activate
   neighbor 2A04:EBC0:766:1::66 activate
-  neighbor 2A04:EBC0:766:1::67 activate
-  neighbor 2A04:EBC0:766:1::68 activate
-  neighbor 2A04:EBC0:766:1::69 activate
   neighbor 2A04:EBC0:766:1::70 activate
   neighbor 2A04:EBC0:766:1::71 activate
   neighbor 2A04:EBC0:766:1::72 activate
-  neighbor 2A04:EBC0:766:2:5::2 activate
-  neighbor 2A04:EBC0:766:2:5::2 route-map downstream-60035-in-v6-map in
   network 2A04:EBC0:766:2:1::/112 route-map originated-internal-v6-map
   network 2A04:EBC0:766:2:2::/112 route-map originated-internal-v6-map
   network 2A04:EBC0:766:2:4::/112 route-map originated-internal-v6-map
