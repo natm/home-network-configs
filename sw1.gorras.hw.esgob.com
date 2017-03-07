@@ -7,7 +7,7 @@
 ! 
 ! 
 !
-! No configuration change since last restart
+! Last configuration change at 02:45:32 UTC Tue Mar 7 2017 by nat
 !
 version 12.2
 no service pad
@@ -295,6 +295,7 @@ interface Vlan29
  ip address 185.61.112.90 255.255.255.252
  ip ospf network point-to-point
  ipv6 address 2A04:EBC0:766:2:3::2/112
+ ipv6 ospf network point-to-point
  ipv6 ospf 1 area 0
 !
 interface Vlan41
