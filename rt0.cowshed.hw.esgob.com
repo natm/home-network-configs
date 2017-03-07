@@ -785,7 +785,6 @@ protocols {
             update-source 185.19.150.68
         }
         neighbor 185.19.148.42 {
-            override-capability
             remote-as 65534
         }
         neighbor 185.61.112.65 {
@@ -817,6 +816,15 @@ protocols {
             nexthop-self
             remote-as 60036
             update-source 185.19.148.1
+        }
+        neighbor 2a04:ebc0:748:2:3::2 {
+            address-family {
+                ipv6-unicast {
+                    maximum-prefix 1000
+                }
+            }
+            no-activate
+            remote-as 65534
         }
         neighbor 2a04:ebc0:766:1::65 {
             address-family {
