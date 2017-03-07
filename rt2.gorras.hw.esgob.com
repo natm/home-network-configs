@@ -300,8 +300,6 @@ protocols {
             interface eth0
             interface eth4
         }
-        capability {
-        }
         parameters {
             router-id 185.61.112.71
         }
