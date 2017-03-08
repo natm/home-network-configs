@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 03:41:47 UTC Wed Mar 8 2017 by nat
-! NVRAM config last updated at 02:48:32 UTC Wed Mar 8 2017 by nat
+! Last configuration change at 12:02:38 UTC Wed Mar 8 2017 by nat
+! NVRAM config last updated at 12:03:23 UTC Wed Mar 8 2017 by nat
 !
 version 12.2
 no service pad
@@ -353,13 +353,15 @@ router bgp 60036
  neighbor 2A04:EBC0:766:1::70 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::71 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:1::72 peer-group ibgp-v6
+ neighbor 2A04:EBC0:766:2:1::2 remote-as 60036
+ neighbor 2A04:EBC0:766:2:1::2 description homesvc0
  neighbor 2A04:EBC0:766:2:2::2 remote-as 60036
  neighbor 2A04:EBC0:766:2:2::2 description pve1
  neighbor 185.19.148.1 peer-group ibgp-v4
  neighbor 185.61.112.70 peer-group ibgp-v4
  neighbor 185.61.112.71 peer-group ibgp-v4
  neighbor 185.61.112.72 peer-group ibgp-v4
- neighbor 185.61.112.82 remote-as 65534
+ neighbor 185.61.112.82 remote-as 60036
  neighbor 185.61.112.86 remote-as 60036
  neighbor 185.61.112.86 description pve1
  !
@@ -373,6 +375,8 @@ router bgp 60036
   neighbor 185.61.112.71 activate
   neighbor 185.61.112.72 activate
   neighbor 185.61.112.82 activate
+  neighbor 185.61.112.82 route-reflector-client
+  neighbor 185.61.112.82 maximum-prefix 50
   neighbor 185.61.112.86 activate
   neighbor 185.61.112.86 route-reflector-client
   neighbor 185.61.112.86 maximum-prefix 50
@@ -403,6 +407,9 @@ router bgp 60036
   neighbor 2A04:EBC0:766:1::70 activate
   neighbor 2A04:EBC0:766:1::71 activate
   neighbor 2A04:EBC0:766:1::72 activate
+  neighbor 2A04:EBC0:766:2:1::2 activate
+  neighbor 2A04:EBC0:766:2:1::2 route-reflector-client
+  neighbor 2A04:EBC0:766:2:1::2 maximum-prefix 50
   neighbor 2A04:EBC0:766:2:2::2 activate
   neighbor 2A04:EBC0:766:2:2::2 route-reflector-client
   neighbor 2A04:EBC0:766:2:2::2 maximum-prefix 50
