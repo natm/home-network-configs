@@ -180,12 +180,6 @@ protocols {
             remote-as 60036
             update-source 185.61.112.71
         }
-        neighbor 185.61.112.66 {
-            maximum-prefix 1000
-            nexthop-self
-            remote-as 60036
-            update-source 185.61.112.71
-        }
         neighbor 185.61.112.70 {
             maximum-prefix 1000
             nexthop-self
@@ -214,20 +208,6 @@ protocols {
             update-source lo
         }
         neighbor 2a04:ebc0:766:1::65 {
-            address-family {
-                ipv6-unicast {
-                    maximum-prefix 1000
-                    nexthop-self
-                }
-            }
-            no-activate
-            remote-as 60036
-            route-map {
-                import deny-all-v4
-            }
-            update-source lo
-        }
-        neighbor 2a04:ebc0:766:1::66 {
             address-family {
                 ipv6-unicast {
                     maximum-prefix 1000
