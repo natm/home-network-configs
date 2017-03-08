@@ -7,7 +7,7 @@
 ! 
 ! 
 !
-! Last configuration change at 02:48:30 UTC Wed Mar 8 2017 by nat
+! Last configuration change at 03:41:47 UTC Wed Mar 8 2017 by nat
 ! NVRAM config last updated at 02:48:32 UTC Wed Mar 8 2017 by nat
 !
 version 12.2
@@ -356,7 +356,6 @@ router bgp 60036
  neighbor 2A04:EBC0:766:2:2::2 remote-as 60036
  neighbor 2A04:EBC0:766:2:2::2 description pve1
  neighbor 185.19.148.1 peer-group ibgp-v4
- neighbor 185.61.112.66 peer-group ibgp-v4
  neighbor 185.61.112.70 peer-group ibgp-v4
  neighbor 185.61.112.71 peer-group ibgp-v4
  neighbor 185.61.112.72 peer-group ibgp-v4
@@ -370,7 +369,6 @@ router bgp 60036
   neighbor ibgp-v4 next-hop-self
   neighbor ibgp-v4 maximum-prefix 1000
   neighbor 185.19.148.1 activate
-  neighbor 185.61.112.66 activate
   neighbor 185.61.112.70 activate
   neighbor 185.61.112.71 activate
   neighbor 185.61.112.72 activate
