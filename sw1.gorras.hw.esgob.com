@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 12:02:38 UTC Wed Mar 8 2017 by nat
-! NVRAM config last updated at 12:03:23 UTC Wed Mar 8 2017 by nat
+! Last configuration change at 22:41:08 UTC Thu Mar 9 2017 by nat
+! NVRAM config last updated at 22:42:07 UTC Thu Mar 9 2017 by nat
 !
 version 12.2
 no service pad
@@ -355,6 +355,7 @@ router bgp 60036
  neighbor 2A04:EBC0:766:1::72 peer-group ibgp-v6
  neighbor 2A04:EBC0:766:2:1::2 remote-as 60036
  neighbor 2A04:EBC0:766:2:1::2 description homesvc0
+ neighbor 2A04:EBC0:766:2:1::2 shutdown
  neighbor 2A04:EBC0:766:2:2::2 remote-as 60036
  neighbor 2A04:EBC0:766:2:2::2 description pve1
  neighbor 185.19.148.1 peer-group ibgp-v4
@@ -362,11 +363,12 @@ router bgp 60036
  neighbor 185.61.112.71 peer-group ibgp-v4
  neighbor 185.61.112.72 peer-group ibgp-v4
  neighbor 185.61.112.82 remote-as 60036
+ neighbor 185.61.112.82 shutdown
  neighbor 185.61.112.86 remote-as 60036
  neighbor 185.61.112.86 description pve1
  !
  address-family ipv4
-  redistribute static route-map rtbh-v4-map
+  redistribute static route-map internal-static-v4-map
   neighbor ibgp-v4 send-community
   neighbor ibgp-v4 next-hop-self
   neighbor ibgp-v4 maximum-prefix 1000
@@ -438,6 +440,8 @@ ip route 185.61.112.32 255.255.255.224 Null0
 ip route 185.61.112.80 255.255.255.252 Null0
 ip route 185.61.112.84 255.255.255.252 Null0
 ip route 185.61.112.92 255.255.255.252 Null0
+ip route 185.61.112.97 255.255.255.255 185.61.112.82 tag 300
+ip route 185.61.112.99 255.255.255.255 185.61.112.82 tag 300
 ip route 185.61.112.144 255.255.255.240 Null0
 ip route 185.61.112.160 255.255.255.240 Null0
 ip route 185.61.112.192 255.255.255.192 Null0
@@ -477,6 +481,10 @@ route-map downstream-60035-in-v6-map permit 10
 !
 route-map downstream-60035-in-v4-map permit 10
  set community 60036:4003 60036:9000
+!
+route-map internal-static-v4-map permit 10
+ match tag 300
+ set community 60036:4003
 !
 route-map originated-supernet-v4-map permit 10
  set community 60036:4003 60036:8000 60036:8001
