@@ -7,7 +7,7 @@
 ! 
 ! 
 !
-! Last configuration change at 22:41:08 UTC Thu Mar 9 2017 by nat
+! Last configuration change at 18:40:16 UTC Fri Mar 10 2017 by nat
 ! NVRAM config last updated at 22:42:07 UTC Thu Mar 9 2017 by nat
 !
 version 12.2
@@ -298,6 +298,9 @@ interface Vlan29
  ipv6 address 2A04:EBC0:766:2:3::2/112
  ipv6 ospf 1 area 1
 !
+interface Vlan40
+ no ip address
+!
 interface Vlan41
  description house-lounge
  ip address 185.61.112.161 255.255.255.240
@@ -326,7 +329,7 @@ interface Vlan70
  ipv6 ospf 1 area 1
 !
 interface Vlan400
- description nat-test-18
+ description nat-test-19
  no ip address
 !
 interface Vlan991
