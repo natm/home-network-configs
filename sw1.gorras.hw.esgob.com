@@ -291,6 +291,10 @@ interface Vlan21
  ip address 185.61.112.81 255.255.255.252
  ipv6 address 2A04:EBC0:766:2:1::1/112
 !
+interface Vlan23
+ description outdoors1
+ no ip address
+!
 interface Vlan29
  description to-sw4-in-woods
  ip address 185.61.112.90 255.255.255.252
