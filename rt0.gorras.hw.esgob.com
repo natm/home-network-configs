@@ -415,6 +415,7 @@ service {
                 }
             }
         }
+        use-dnsmasq disable
     }
     dhcpv6-server {
         shared-network-name test {
@@ -429,7 +430,9 @@ service {
         }
     }
     gui {
+        http-port 80
         https-port 443
+        older-ciphers enable
     }
     lldp {
         interface all {
