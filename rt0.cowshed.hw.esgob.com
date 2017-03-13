@@ -957,8 +957,6 @@ protocols {
     }
     static {
         interface-route 90.155.53.60/32 {
-            next-hop-interface pppoe {
-            }
             next-hop-interface pppoe0 {
             }
             next-hop-interface pppoe1 {
