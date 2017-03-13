@@ -957,6 +957,8 @@ protocols {
     }
     static {
         interface-route 90.155.53.60/32 {
+            next-hop-interface pppoe {
+            }
             next-hop-interface pppoe0 {
             }
             next-hop-interface pppoe1 {
@@ -1184,9 +1186,12 @@ service {
                 }
             }
         }
+        use-dnsmasq disable
     }
     gui {
+        http-port 80
         https-port 443
+        older-ciphers enable
     }
     lldp {
         interface all {
@@ -1241,6 +1246,7 @@ system {
         }
     }
     offload {
+        hwnat disable
         ipsec enable
         ipv4 {
             forwarding enable
