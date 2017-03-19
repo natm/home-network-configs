@@ -445,7 +445,7 @@ interfaces {
         description "Transit: FTTC AAISP 1 in Mathry Cowshed"
         duplex auto
         pppoe 0 {
-            default-route none
+            default-route auto
             firewall {
                 in {
                     name transit4_in
@@ -475,7 +475,7 @@ interfaces {
         description "Transit: FTTC AAISP 2 in Mathry Cowshed"
         duplex auto
         pppoe 1 {
-            default-route none
+            default-route auto
             firewall {
                 in {
                     name transit4_in
