@@ -974,6 +974,12 @@ protocols {
             next-hop-interface pppoe1 {
             }
         }
+        interface-route6 ::/0 {
+            next-hop-interface pppoe0 {
+            }
+            next-hop-interface pppoe1 {
+            }
+        }
         interface-route6 2001:8b0:0:53::60/128 {
             next-hop-interface pppoe0 {
             }
