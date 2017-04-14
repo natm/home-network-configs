@@ -473,7 +473,6 @@ interfaces {
     }
     ethernet eth1 {
         description "Transit: FTTC AAISP 2 in Mathry Cowshed"
-        disable
         duplex auto
         pppoe 1 {
             default-route auto
