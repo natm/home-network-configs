@@ -1,4 +1,7 @@
 interfaces {
+    bridge br1 {
+        description neil
+    }
     ethernet eth0 {
         address 185.61.114.1/29
         address 2a04:ebc0:714:101::1/64
