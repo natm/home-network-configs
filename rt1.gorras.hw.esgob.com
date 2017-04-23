@@ -124,6 +124,11 @@ interfaces {
             output off
         }
         speed auto
+        vif 102 {
+            address 2a04:ebc0:714:103::1/64
+            address 185.61.114.17/29
+            description "Cust: Jane and Ken"
+        }
     }
     loopback lo {
         address 185.61.112.70/32
@@ -217,6 +222,9 @@ protocols {
                 }
                 network 2A04:EBC0:766::/48 {
                     route-map originated-supernet-v6-map
+                }
+                network 2a04:ebc0:714:103::/64 {
+                    route-map originated-internal-v6-map
                 }
             }
         }
@@ -318,6 +326,9 @@ protocols {
         network 185.61.114.0/24 {
             route-map originated-supernet-v4-map
         }
+        network 185.61.114.16/29 {
+            route-map originated-internal-v4-map
+        }
         network 185.61.115.0/24 {
             route-map originated-supernet-v4-map
         }
@@ -379,6 +390,10 @@ protocols {
             blackhole {
             }
         }
+        route 185.61.114.16/29 {
+            blackhole {
+            }
+        }
         route 185.61.115.0/24 {
             blackhole {
             }
@@ -399,9 +414,31 @@ protocols {
             blackhole {
             }
         }
+        route6 2a04:ebc0:714:103::/64 {
+            blackhole {
+            }
+        }
     }
 }
 service {
+    dhcp-server {
+        shared-network-name ken-and-jane {
+            authoritative enable
+            subnet 185.61.114.16/29 {
+                default-router 185.61.114.17
+                dns-server 185.61.112.98
+                dns-server 185.19.148.98
+                lease 3600
+                start 185.61.114.18 {
+                    stop 185.61.114.22
+                }
+                static-mapping JaneKen_Archer_C2 {
+                    ip-address 185.61.114.18
+                    mac-address f4:f2:6d:9b:cf:7d
+                }
+            }
+        }
+    }
     gui {
         https-port 443
     }
