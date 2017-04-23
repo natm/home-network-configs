@@ -1,6 +1,15 @@
 interfaces {
+    bridge br0 {
+        description "julia and ken"
+    }
     bridge br1 {
         description neil
+    }
+    bridge br2 {
+        description "jane and ken"
+    }
+    bridge br3 {
+        description "adam and helena"
     }
     ethernet eth0 {
         address 185.61.114.1/29
@@ -20,8 +29,9 @@ interfaces {
         speed auto
     }
     ethernet eth2 {
-        address 2a04:ebc0:714:103::1/64
-        address 185.61.114.17/29
+        bridge-group {
+            bridge br2
+        }
         description "Cust: Jane and Ken"
         duplex auto
         poe {
@@ -80,6 +90,27 @@ interfaces {
             }
         }
         speed auto
+        vif 100 {
+            bridge-group {
+                bridge br0
+            }
+        }
+        vif 101 {
+            bridge-group {
+                bridge br1
+            }
+            description neil
+        }
+        vif 102 {
+            bridge-group {
+                bridge br2
+            }
+        }
+        vif 103 {
+            bridge-group {
+                bridge br3
+            }
+        }
     }
     loopback lo {
         address 185.61.112.72/32
@@ -154,7 +185,6 @@ protocols {
                     route-map originated-internal-v6-map
                 }
                 network 2a04:ebc0:714:103::/64 {
-                    route-map originated-internal-v6-map
                 }
                 network 2a04:ebc0:714:104::/64 {
                     route-map originated-internal-v6-map
@@ -251,7 +281,6 @@ protocols {
             route-map originated-internal-v4-map
         }
         network 185.61.114.16/29 {
-            route-map originated-internal-v4-map
         }
         network 185.61.114.24/29 {
             route-map originated-internal-v4-map
@@ -296,10 +325,6 @@ protocols {
             blackhole {
             }
         }
-        route 185.61.114.16/29 {
-            blackhole {
-            }
-        }
         route 185.61.114.24/29 {
             blackhole {
             }
@@ -317,10 +342,6 @@ protocols {
             }
         }
         route6 2a04:ebc0:714:102::/64 {
-            blackhole {
-            }
-        }
-        route6 2a04:ebc0:714:103::/64 {
             blackhole {
             }
         }
@@ -358,22 +379,6 @@ service {
                 }
             }
         }
-        shared-network-name ken-and-jane {
-            authoritative enable
-            subnet 185.61.114.16/29 {
-                default-router 185.61.114.17
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 185.61.114.18 {
-                    stop 185.61.114.22
-                }
-                static-mapping JaneKen_Archer_C2 {
-                    ip-address 185.61.114.18
-                    mac-address f4:f2:6d:9b:cf:7d
-                }
-            }
-        }
         shared-network-name ken-and-julia {
             authoritative enable
             subnet 185.61.114.0/29 {
@@ -403,18 +408,6 @@ service {
                 static-mapping Neil_Archer_C2 {
                     ip-address 195.177.252.10
                     mac-address f4:f2:6d:9b:dc:82
-                }
-            }
-        }
-        shared-network-name test {
-            authoritative enable
-            subnet 185.61.114.32/29 {
-                default-router 185.61.114.33
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 185.61.114.34 {
-                    stop 185.61.114.38
                 }
             }
         }
