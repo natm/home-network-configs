@@ -53,8 +53,6 @@ interfaces {
         speed auto
     }
     ethernet eth4 {
-        address 2a04:ebc0:714:105::1/64
-        address 185.61.114.33/29
         description test
         duplex auto
         ipv6 {
@@ -181,9 +179,6 @@ protocols {
     bgp 60036 {
         address-family {
             ipv6-unicast {
-                network 2a04:ebc0:714:105::/64 {
-                    route-map originated-internal-v6-map
-                }
             }
         }
         neighbor 185.19.148.1 {
@@ -266,12 +261,6 @@ protocols {
             }
             update-source lo
         }
-        network 185.61.114.8/29 {
-            route-map originated-internal-v4-map
-        }
-        network 185.61.114.32/29 {
-            route-map originated-internal-v4-map
-        }
         parameters {
             default {
             }
@@ -298,18 +287,6 @@ protocols {
         }
     }
     static {
-        route 185.61.114.8/29 {
-            blackhole {
-            }
-        }
-        route 185.61.114.32/29 {
-            blackhole {
-            }
-        }
-        route6 2a04:ebc0:714:105::/64 {
-            blackhole {
-            }
-        }
         route6 2a04:ebc0:714::/48 {
             blackhole {
             }
@@ -323,16 +300,6 @@ service {
         use-dnsmasq disable
     }
     dhcpv6-server {
-        shared-network-name test {
-            subnet 2a04:ebc0:714:105::/64 {
-                prefix-delegation {
-                    start 2a04:ebc0:714:1500:: {
-                        prefix-length 56
-                        stop 2a04:ebc0:714:15ff::
-                    }
-                }
-            }
-        }
     }
     gui {
         http-port 80
