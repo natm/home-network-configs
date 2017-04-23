@@ -12,15 +12,17 @@ interfaces {
         description "adam and helena"
     }
     ethernet eth0 {
-        address 185.61.114.1/29
-        address 2a04:ebc0:714:101::1/64
+        bridge-group {
+            bridge br0
+        }
         description "Cust: Julia and Ken"
         duplex auto
         speed auto
     }
     ethernet eth1 {
-        address 2a04:ebc0:714:102::1/64
-        address 195.177.252.9/29
+        bridge-group {
+            bridge br1
+        }
         description "Cust: Neil"
         duplex auto
         poe {
@@ -40,8 +42,9 @@ interfaces {
         speed auto
     }
     ethernet eth3 {
-        address 2a04:ebc0:714:104::1/64
-        address 185.61.114.25/29
+        bridge-group {
+            bridge br3
+        }
         description "Cust: Adam and Helena"
         duplex auto
         poe {
@@ -178,17 +181,6 @@ protocols {
     bgp 60036 {
         address-family {
             ipv6-unicast {
-                network 2a04:ebc0:714:101::/64 {
-                    route-map originated-internal-v6-map
-                }
-                network 2a04:ebc0:714:102::/64 {
-                    route-map originated-internal-v6-map
-                }
-                network 2a04:ebc0:714:103::/64 {
-                }
-                network 2a04:ebc0:714:104::/64 {
-                    route-map originated-internal-v6-map
-                }
                 network 2a04:ebc0:714:105::/64 {
                     route-map originated-internal-v6-map
                 }
@@ -274,21 +266,10 @@ protocols {
             }
             update-source lo
         }
-        network 185.61.114.0/29 {
-            route-map originated-internal-v4-map
-        }
         network 185.61.114.8/29 {
             route-map originated-internal-v4-map
         }
-        network 185.61.114.16/29 {
-        }
-        network 185.61.114.24/29 {
-            route-map originated-internal-v4-map
-        }
         network 185.61.114.32/29 {
-            route-map originated-internal-v4-map
-        }
-        network 195.177.252.8/29 {
             route-map originated-internal-v4-map
         }
         parameters {
@@ -317,35 +298,11 @@ protocols {
         }
     }
     static {
-        route 185.61.114.0/29 {
-            blackhole {
-            }
-        }
         route 185.61.114.8/29 {
             blackhole {
             }
         }
-        route 185.61.114.24/29 {
-            blackhole {
-            }
-        }
         route 185.61.114.32/29 {
-            blackhole {
-            }
-        }
-        route 195.177.252.8/29 {
-            blackhole {
-            }
-        }
-        route6 2a04:ebc0:714:101::/64 {
-            blackhole {
-            }
-        }
-        route6 2a04:ebc0:714:102::/64 {
-            blackhole {
-            }
-        }
-        route6 2a04:ebc0:714:104::/64 {
             blackhole {
             }
         }
@@ -363,54 +320,6 @@ service {
     dhcp-server {
         disabled false
         hostfile-update disable
-        shared-network-name adam-and-helena {
-            authoritative enable
-            subnet 185.61.114.24/29 {
-                default-router 185.61.114.25
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 185.61.114.26 {
-                    stop 185.61.114.30
-                }
-                static-mapping AdamHelena_Archer_C2 {
-                    ip-address 185.61.114.26
-                    mac-address a4:2b:b0:a4:7b:71
-                }
-            }
-        }
-        shared-network-name ken-and-julia {
-            authoritative enable
-            subnet 185.61.114.0/29 {
-                default-router 185.61.114.1
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 185.61.114.2 {
-                    stop 185.61.114.7
-                }
-                static-mapping JuliaKen_Archer_C2 {
-                    ip-address 185.61.114.2
-                    mac-address f4:f2:6d:7a:cc:31
-                }
-            }
-        }
-        shared-network-name neil {
-            authoritative enable
-            subnet 195.177.252.8/29 {
-                default-router 195.177.252.9
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 195.177.252.10 {
-                    stop 195.177.252.14
-                }
-                static-mapping Neil_Archer_C2 {
-                    ip-address 195.177.252.10
-                    mac-address f4:f2:6d:9b:dc:82
-                }
-            }
-        }
         use-dnsmasq disable
     }
     dhcpv6-server {
