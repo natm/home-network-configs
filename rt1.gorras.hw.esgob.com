@@ -124,10 +124,25 @@ interfaces {
             output off
         }
         speed auto
+        vif 100 {
+            address 185.61.114.1/29
+            address 2a04:ebc0:714:101::1/64
+            description "Cust: Julia and Ken"
+        }
+        vif 101 {
+            address 2a04:ebc0:714:102::1/64
+            address 195.177.252.9/29
+            description "Cust: Neil"
+        }
         vif 102 {
             address 2a04:ebc0:714:103::1/64
             address 185.61.114.17/29
             description "Cust: Jane and Ken"
+        }
+        vif 103 {
+            address 2a04:ebc0:714:104::1/64
+            address 185.61.114.25/29
+            description "Cust: Adam and Helena"
         }
     }
     loopback lo {
@@ -223,7 +238,16 @@ protocols {
                 network 2A04:EBC0:766::/48 {
                     route-map originated-supernet-v6-map
                 }
+                network 2a04:ebc0:714:101::/64 {
+                    route-map originated-internal-v6-map
+                }
+                network 2a04:ebc0:714:102::/64 {
+                    route-map originated-internal-v6-map
+                }
                 network 2a04:ebc0:714:103::/64 {
+                    route-map originated-internal-v6-map
+                }
+                network 2a04:ebc0:714:104::/64 {
                     route-map originated-internal-v6-map
                 }
             }
@@ -326,7 +350,13 @@ protocols {
         network 185.61.114.0/24 {
             route-map originated-supernet-v4-map
         }
+        network 185.61.114.0/29 {
+            route-map originated-internal-v4-map
+        }
         network 185.61.114.16/29 {
+            route-map originated-internal-v4-map
+        }
+        network 185.61.114.24/29 {
             route-map originated-internal-v4-map
         }
         network 185.61.115.0/24 {
@@ -334,6 +364,9 @@ protocols {
         }
         network 195.177.252.0/24 {
             route-map originated-supernet-v4-map
+        }
+        network 195.177.252.8/29 {
+            route-map originated-internal-v4-map
         }
         parameters {
             default {
@@ -390,7 +423,15 @@ protocols {
             blackhole {
             }
         }
+        route 185.61.114.0/29 {
+            blackhole {
+            }
+        }
         route 185.61.114.16/29 {
+            blackhole {
+            }
+        }
+        route 185.61.114.24/29 {
             blackhole {
             }
         }
@@ -399,6 +440,10 @@ protocols {
             }
         }
         route 195.177.252.0/24 {
+            blackhole {
+            }
+        }
+        route 195.177.252.8/29 {
             blackhole {
             }
         }
@@ -414,7 +459,19 @@ protocols {
             blackhole {
             }
         }
+        route6 2a04:ebc0:714:101::/64 {
+            blackhole {
+            }
+        }
+        route6 2a04:ebc0:714:102::/64 {
+            blackhole {
+            }
+        }
         route6 2a04:ebc0:714:103::/64 {
+            blackhole {
+            }
+        }
+        route6 2a04:ebc0:714:104::/64 {
             blackhole {
             }
         }
@@ -422,6 +479,22 @@ protocols {
 }
 service {
     dhcp-server {
+        shared-network-name adam-and-helena {
+            authoritative enable
+            subnet 185.61.114.24/29 {
+                default-router 185.61.114.25
+                dns-server 185.61.112.98
+                dns-server 185.19.148.98
+                lease 3600
+                start 185.61.114.26 {
+                    stop 185.61.114.30
+                }
+                static-mapping AdamHelena_Archer_C2 {
+                    ip-address 185.61.114.26
+                    mac-address a4:2b:b0:a4:7b:71
+                }
+            }
+        }
         shared-network-name ken-and-jane {
             authoritative enable
             subnet 185.61.114.16/29 {
@@ -435,6 +508,38 @@ service {
                 static-mapping JaneKen_Archer_C2 {
                     ip-address 185.61.114.18
                     mac-address f4:f2:6d:9b:cf:7d
+                }
+            }
+        }
+        shared-network-name ken-and-julia {
+            authoritative enable
+            subnet 185.61.114.0/29 {
+                default-router 185.61.114.1
+                dns-server 185.61.112.98
+                dns-server 185.19.148.98
+                lease 3600
+                start 185.61.114.2 {
+                    stop 185.61.114.7
+                }
+                static-mapping JuliaKen_Archer_C2 {
+                    ip-address 185.61.114.2
+                    mac-address f4:f2:6d:7a:cc:31
+                }
+            }
+        }
+        shared-network-name neil {
+            authoritative enable
+            subnet 195.177.252.8/29 {
+                default-router 195.177.252.9
+                dns-server 185.61.112.98
+                dns-server 185.19.148.98
+                lease 3600
+                start 195.177.252.10 {
+                    stop 195.177.252.14
+                }
+                static-mapping Neil_Archer_C2 {
+                    ip-address 195.177.252.10
+                    mac-address f4:f2:6d:9b:dc:82
                 }
             }
         }
