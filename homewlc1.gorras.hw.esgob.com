@@ -161,6 +161,7 @@ mesh lsc advanced ap-provision open-window enable
 mgmtuser add admin **** read-write
 mgmtuser add oxidized-prod **** read-write
 mgmtuser add oxidized-test **** read-write
+mgmtuser add waffle **** read-write
 mobility group domain home
 mobility dscp 0
 network broadcast enable
