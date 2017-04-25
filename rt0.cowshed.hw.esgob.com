@@ -19,6 +19,11 @@ firewall {
             address 185.61.112.148
             description ""
         }
+        address-group dotwaffle {
+            address 212.111.40.190
+            address 88.198.24.72
+            description ""
+        }
         address-group mosh_servers {
             address 185.61.112.98
             description ""
@@ -363,6 +368,48 @@ firewall {
             }
             log disable
             protocol tcp_udp
+            state {
+                established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
+        rule 20 {
+            action accept
+            description "dotwaffle access to WLC SNMP"
+            destination {
+                address 185.61.112.94
+                port 161
+            }
+            log disable
+            protocol udp
+            source {
+                group {
+                    address-group dotwaffle
+                }
+            }
+            state {
+                established disable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
+        rule 21 {
+            action accept
+            description "dotwaffle access to WLC SSL"
+            destination {
+                address 185.61.112.94
+                port 443
+            }
+            log disable
+            protocol tcp
+            source {
+                group {
+                    address-group dotwaffle
+                }
+            }
             state {
                 established enable
                 invalid disable
