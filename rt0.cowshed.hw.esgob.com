@@ -390,7 +390,7 @@ firewall {
                 }
             }
             state {
-                established disable
+                established enable
                 invalid disable
                 new enable
                 related disable
