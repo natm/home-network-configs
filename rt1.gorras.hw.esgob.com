@@ -106,19 +106,10 @@ interfaces {
         speed auto
     }
     ethernet eth4 {
-        address 185.61.112.118/30
-        address 2A04:EBC0:766:2:10::1/112
+        address 185.61.112.105/29
         description "Core: Pole to Neighbors"
         duplex auto
         ip {
-            ospf {
-                dead-interval 40
-                hello-interval 10
-                network point-to-point
-                priority 1
-                retransmit-interval 5
-                transmit-delay 1
-            }
         }
         poe {
             output off
@@ -341,6 +332,9 @@ protocols {
         network 185.61.112.0/24 {
             route-map originated-supernet-v4-map
         }
+        network 185.61.112.104/29 {
+            route-map originated-internal-v4-map
+        }
         network 185.61.113.0/24 {
             route-map originated-supernet-v4-map
         }
@@ -408,6 +402,10 @@ protocols {
             }
         }
         route 185.61.112.0/24 {
+            blackhole {
+            }
+        }
+        route 185.61.112.104/29 {
             blackhole {
             }
         }
