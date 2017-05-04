@@ -118,22 +118,22 @@ interfaces {
         vif 100 {
             address 185.61.114.1/29
             address 2a04:ebc0:714:101::1/64
-            description "Cust: Julia and Ken"
+            description julia-ken
         }
         vif 101 {
             address 2a04:ebc0:714:102::1/64
             address 195.177.252.9/29
-            description "Cust: Neil"
+            description neil
         }
         vif 102 {
             address 2a04:ebc0:714:103::1/64
             address 185.61.114.17/29
-            description "Cust: Jane and Ken"
+            description jane-ken
         }
         vif 103 {
             address 2a04:ebc0:714:104::1/64
             address 185.61.114.25/29
-            description "Cust: Adam and Helena"
+            description adam
         }
     }
     loopback lo {
