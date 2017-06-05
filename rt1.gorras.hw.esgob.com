@@ -122,7 +122,7 @@ interfaces {
         }
         vif 101 {
             address 2a04:ebc0:714:102::1/64
-            address 195.177.252.9/29
+            address 195.177.252.9/30
             description neil
         }
         vif 102 {
@@ -359,7 +359,7 @@ protocols {
         network 195.177.252.0/24 {
             route-map originated-supernet-v4-map
         }
-        network 195.177.252.8/29 {
+        network 195.177.252.8/30 {
             route-map originated-internal-v4-map
         }
         parameters {
@@ -441,7 +441,7 @@ protocols {
             blackhole {
             }
         }
-        route 195.177.252.8/29 {
+        route 195.177.252.8/30 {
             blackhole {
             }
         }
@@ -527,13 +527,13 @@ service {
         }
         shared-network-name neil {
             authoritative enable
-            subnet 195.177.252.8/29 {
+            subnet 195.177.252.8/30 {
                 default-router 195.177.252.9
                 dns-server 185.61.112.98
                 dns-server 185.19.148.98
                 lease 3600
                 start 195.177.252.10 {
-                    stop 195.177.252.14
+                    stop 195.177.252.10
                 }
                 static-mapping Neil_Archer_C2 {
                     ip-address 195.177.252.10
