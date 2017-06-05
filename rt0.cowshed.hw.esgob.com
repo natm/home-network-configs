@@ -567,6 +567,11 @@ interfaces {
             description les-ann
             mtu 1500
         }
+        vif 201 {
+            address 195.177.252.21/30
+            address 2a04:ebc0:714:201::1/64
+            description lesmorris
+        }
     }
     ethernet eth4 {
         address 185.19.148.37/30
