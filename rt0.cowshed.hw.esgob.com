@@ -796,6 +796,9 @@ protocols {
                 network 2A04:EBC0:748::/48 {
                     route-map originated-supernet-v6-map
                 }
+                network 2a04:ebc0:714:201::/64 {
+                    route-map originated-internal-v6-map
+                }
                 network 2a04:ebc0:748:2:3::/112 {
                     route-map originated-internal-v6-map
                 }
@@ -980,6 +983,9 @@ protocols {
         network 185.19.148.96/30 {
         }
         network 185.19.148.112/28 {
+            route-map originated-internal-v4-map
+        }
+        network 195.177.252.20/30 {
             route-map originated-internal-v4-map
         }
         parameters {
@@ -1196,7 +1202,15 @@ protocols {
                 description anycastddos
             }
         }
+        route 195.177.252.20/30 {
+            blackhole {
+            }
+        }
         route6 2A04:EBC0:748::/48 {
+            blackhole {
+            }
+        }
+        route6 2a04:ebc0:714:201::/64 {
             blackhole {
             }
         }
@@ -1216,9 +1230,21 @@ service {
                 default-router 185.19.148.129
                 dns-server 185.19.148.98
                 dns-server 185.61.112.98
-                lease 86400
+                lease 300
                 start 185.19.148.130 {
                     stop 185.19.148.134
+                }
+            }
+        }
+        shared-network-name lesmorris {
+            authoritative disable
+            subnet 195.177.252.20/30 {
+                default-router 195.177.252.21
+                dns-server 185.19.148.98
+                dns-server 185.19.149.98
+                lease 3600
+                start 195.177.252.22 {
+                    stop 195.177.252.22
                 }
             }
         }
