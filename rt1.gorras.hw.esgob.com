@@ -483,7 +483,7 @@ service {
                 default-router 185.61.114.25
                 dns-server 185.19.148.98
                 dns-server 185.19.149.98
-                lease 3600
+                lease 300
                 start 185.61.114.26 {
                     stop 185.61.114.30
                 }
@@ -499,7 +499,7 @@ service {
                 default-router 185.61.114.17
                 dns-server 185.19.148.98
                 dns-server 185.19.149.98
-                lease 3600
+                lease 300
                 start 185.61.114.18 {
                     stop 185.61.114.22
                 }
@@ -515,7 +515,7 @@ service {
                 default-router 185.61.114.1
                 dns-server 185.19.148.98
                 dns-server 185.19.149.98
-                lease 3600
+                lease 300
                 start 185.61.114.2 {
                     stop 185.61.114.7
                 }
