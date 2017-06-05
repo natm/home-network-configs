@@ -481,8 +481,8 @@ service {
             authoritative enable
             subnet 185.61.114.24/29 {
                 default-router 185.61.114.25
-                dns-server 185.61.112.98
                 dns-server 185.19.148.98
+                dns-server 185.19.149.98
                 lease 3600
                 start 185.61.114.26 {
                     stop 185.61.114.30
@@ -497,8 +497,8 @@ service {
             authoritative enable
             subnet 185.61.114.16/29 {
                 default-router 185.61.114.17
-                dns-server 185.61.112.98
                 dns-server 185.19.148.98
+                dns-server 185.19.149.98
                 lease 3600
                 start 185.61.114.18 {
                     stop 185.61.114.22
@@ -513,8 +513,8 @@ service {
             authoritative enable
             subnet 185.61.114.0/29 {
                 default-router 185.61.114.1
-                dns-server 185.61.112.98
                 dns-server 185.19.148.98
+                dns-server 185.19.149.98
                 lease 3600
                 start 185.61.114.2 {
                     stop 185.61.114.7
@@ -529,8 +529,8 @@ service {
             authoritative enable
             subnet 195.177.252.8/30 {
                 default-router 195.177.252.9
-                dns-server 185.61.112.98
                 dns-server 185.19.148.98
+                dns-server 185.19.149.98
                 lease 3600
                 start 195.177.252.10 {
                     stop 195.177.252.10
@@ -591,8 +591,8 @@ system {
             level admin
         }
     }
-    name-server 185.61.112.98
     name-server 185.19.148.98
+    name-server 185.19.149.98
     ntp {
         server 185.61.112.97 {
         }
