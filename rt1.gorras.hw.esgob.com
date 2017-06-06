@@ -116,8 +116,8 @@ interfaces {
         }
         speed auto
         vif 100 {
-            address 185.61.114.1/29
             address 2a04:ebc0:714:101::1/64
+            address 195.177.252.5/30
             description julia-ken
         }
         vif 101 {
@@ -127,12 +127,12 @@ interfaces {
         }
         vif 102 {
             address 2a04:ebc0:714:103::1/64
-            address 185.61.114.17/29
+            address 195.177.252.13/30
             description jane-ken
         }
         vif 103 {
             address 2a04:ebc0:714:104::1/64
-            address 185.61.114.25/29
+            address 195.177.252.17/30
             description adam
         }
     }
@@ -502,18 +502,6 @@ service {
                 }
             }
         }
-        shared-network-name adam-and-helena {
-            authoritative enable
-            subnet 185.61.114.24/29 {
-                default-router 185.61.114.25
-                dns-server 185.19.148.98
-                dns-server 185.19.149.98
-                lease 300
-                start 185.61.114.26 {
-                    stop 185.61.114.30
-                }
-            }
-        }
         shared-network-name janeken {
             subnet 195.177.252.12/30 {
                 default-router 195.177.252.13
@@ -533,30 +521,6 @@ service {
                 lease 3600
                 start 195.177.252.6 {
                     stop 195.177.252.6
-                }
-            }
-        }
-        shared-network-name ken-and-jane {
-            authoritative enable
-            subnet 185.61.114.16/29 {
-                default-router 185.61.114.17
-                dns-server 185.19.148.98
-                dns-server 185.19.149.98
-                lease 300
-                start 185.61.114.18 {
-                    stop 185.61.114.22
-                }
-            }
-        }
-        shared-network-name ken-and-julia {
-            authoritative enable
-            subnet 185.61.114.0/29 {
-                default-router 185.61.114.1
-                dns-server 185.19.148.98
-                dns-server 185.19.149.98
-                lease 300
-                start 185.61.114.2 {
-                    stop 185.61.114.7
                 }
             }
         }
