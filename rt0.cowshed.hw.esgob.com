@@ -1231,6 +1231,10 @@ service {
                 start 195.177.252.22 {
                     stop 195.177.252.22
                 }
+                static-mapping lesrtr {
+                    ip-address 195.177.252.22
+                    mac-address a4:2b:b0:d9:fa:e0
+                }
             }
         }
         shared-network-name sw0-general {
