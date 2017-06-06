@@ -561,12 +561,6 @@ interfaces {
         description "sw0 port 26"
         duplex auto
         speed auto
-        vif 128 {
-            address 185.19.148.129/29
-            address 2a04:ebc0:748:101::1/64
-            description les-ann
-            mtu 1500
-        }
         vif 201 {
             address 195.177.252.21/30
             address 2a04:ebc0:714:201::1/64
@@ -985,6 +979,9 @@ protocols {
         network 185.19.148.112/28 {
             route-map originated-internal-v4-map
         }
+        network 195.177.252.0/24 {
+            route-map originated-supernet-v4-map
+        }
         network 195.177.252.20/30 {
             route-map originated-internal-v4-map
         }
@@ -1202,7 +1199,7 @@ protocols {
                 description anycastddos
             }
         }
-        route 195.177.252.20/30 {
+        route 195.177.252.0/24 {
             blackhole {
             }
         }
@@ -1224,18 +1221,6 @@ service {
     dhcp-server {
         disabled false
         hostfile-update disable
-        shared-network-name les-morris {
-            authoritative disable
-            subnet 185.19.148.128/29 {
-                default-router 185.19.148.129
-                dns-server 185.19.148.98
-                dns-server 185.61.112.98
-                lease 300
-                start 185.19.148.130 {
-                    stop 185.19.148.134
-                }
-            }
-        }
         shared-network-name lesmorris {
             authoritative disable
             subnet 195.177.252.20/30 {
