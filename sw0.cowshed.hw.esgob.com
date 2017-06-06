@@ -56,14 +56,9 @@ vlan 1
    ip address 185.19.148.114 255.255.255.240 
    no untagged 14 
    exit 
-vlan 128 
-   name "les-morris" 
-   untagged 14 
-   no ip address 
-   tagged 26 
-   exit 
 vlan 201 
    name "lesmorris" 
+   untagged 14 
    tagged 26 
    exit 
 ip authorized-managers 185.61.112.0 255.255.252.0 
