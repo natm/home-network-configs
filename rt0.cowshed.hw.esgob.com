@@ -602,6 +602,9 @@ interfaces {
         }
     }
     ethernet eth5 {
+        address 185.19.148.53/30
+        address 2a04:ebc0:748:2:6::1/112
+        description svc1
         duplex auto
         speed auto
     }
@@ -972,6 +975,9 @@ protocols {
             route-map originated-internal-v4-map
         }
         network 185.19.148.40/30 {
+            route-map originated-internal-v4-map
+        }
+        network 185.19.148.52/30 {
             route-map originated-internal-v4-map
         }
         network 185.19.148.96/30 {
