@@ -839,6 +839,10 @@ protocols {
         neighbor 185.19.148.42 {
             remote-as 65534
         }
+        neighbor 185.19.148.54 {
+            description svc1.cowshed
+            remote-as 64512
+        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
