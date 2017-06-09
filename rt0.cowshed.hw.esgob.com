@@ -841,8 +841,7 @@ protocols {
         }
         neighbor 185.19.148.54 {
             description svc1.cowshed
-            remote-as 60036
-            route-reflector-client
+            remote-as 64512
             soft-reconfiguration {
                 inbound
             }
