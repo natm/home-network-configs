@@ -245,7 +245,6 @@ protocols {
         neighbor 185.19.148.58 {
             description svc1.gorras
             remote-as 64512
-            shutdown
             soft-reconfiguration {
                 inbound
             }
