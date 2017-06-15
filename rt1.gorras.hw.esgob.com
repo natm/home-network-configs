@@ -397,10 +397,6 @@ protocols {
             blackhole {
             }
         }
-        route 185.19.148.56/30 {
-            blackhole {
-            }
-        }
         route 185.61.112.0/22 {
             blackhole {
             }
