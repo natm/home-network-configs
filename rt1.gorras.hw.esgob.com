@@ -81,17 +81,10 @@ interfaces {
         }
     }
     ethernet eth2 {
-        description "temp to sw0"
+        address 185.19.148.57/30
+        description svc1.gorras
         duplex auto
         ip {
-            ospf {
-                dead-interval 40
-                hello-interval 10
-                network point-to-point
-                priority 1
-                retransmit-interval 5
-                transmit-delay 1
-            }
         }
         poe {
             output off
@@ -326,6 +319,9 @@ protocols {
         network 185.19.148.0/23 {
             route-map originated-supernet-v4-map
         }
+        network 185.19.148.56/30 {
+            route-map originated-internal-v4-map
+        }
         network 185.61.112.0/22 {
             route-map originated-supernet-v4-map
         }
@@ -391,6 +387,10 @@ protocols {
     }
     static {
         route 185.19.148.0/23 {
+            blackhole {
+            }
+        }
+        route 185.19.148.56/30 {
             blackhole {
             }
         }
