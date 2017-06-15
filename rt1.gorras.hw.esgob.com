@@ -92,7 +92,20 @@ interfaces {
         speed auto
     }
     ethernet eth3 {
+        address 185.19.148.93/30
+        address 2a04:ebc0:748:2:16::1/112
+        description rt3.gorras_TEMP
         duplex auto
+        ip {
+            ospf {
+                cost 1
+            }
+        }
+        ipv6 {
+            ospfv3 {
+                cost 1
+            }
+        }
         poe {
             output off
         }
@@ -375,6 +388,7 @@ protocols {
             network 185.61.112.116/30
             network 185.61.113.76/30
             network 185.61.113.80/30
+            network 185.19.148.92/30
         }
         parameters {
             abr-type cisco
@@ -387,6 +401,7 @@ protocols {
             interface eth1
             interface eth4
             interface eth0
+            interface eth3
         }
         parameters {
             router-id 185.61.112.70
