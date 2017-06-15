@@ -242,6 +242,14 @@ protocols {
             remote-as 60036
             update-source 185.61.112.70
         }
+        neighbor 185.19.148.58 {
+            description svc1.gorras
+            remote-as 64512
+            shutdown
+            soft-reconfiguration {
+                inbound
+            }
+        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
