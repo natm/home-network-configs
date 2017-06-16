@@ -1025,15 +1025,6 @@ protocols {
         network 185.19.148.112/28 {
             route-map originated-internal-v4-map
         }
-        network 185.61.112.0/22 {
-            route-map originated-supernet-v4-map
-        }
-        network 185.61.112.0/24 {
-            route-map originated-supernet-v4-map
-        }
-        network 185.61.113.0/24 {
-            route-map originated-supernet-v4-map
-        }
         network 185.61.114.0/24 {
             route-map originated-supernet-v4-map
         }
@@ -1247,18 +1238,6 @@ protocols {
             }
         }
         route 185.19.148.112/28 {
-            blackhole {
-            }
-        }
-        route 185.61.112.0/22 {
-            blackhole {
-            }
-        }
-        route 185.61.112.0/24 {
-            blackhole {
-            }
-        }
-        route 185.61.113.0/24 {
             blackhole {
             }
         }
