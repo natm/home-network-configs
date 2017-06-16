@@ -423,35 +423,11 @@ protocols {
         }
     }
     static {
-        route 185.19.148.0/23 {
-            blackhole {
-            }
-        }
-        route 185.61.112.0/22 {
-            blackhole {
-            }
-        }
-        route 185.61.112.0/24 {
-            blackhole {
-            }
-        }
         route 185.61.112.104/29 {
             blackhole {
             }
         }
-        route 185.61.113.0/24 {
-            blackhole {
-            }
-        }
         route 185.61.113.64/30 {
-            blackhole {
-            }
-        }
-        route 185.61.114.0/24 {
-            blackhole {
-            }
-        }
-        route 185.61.115.0/24 {
             blackhole {
             }
         }
@@ -468,18 +444,6 @@ protocols {
             }
         }
         route 195.177.252.16/30 {
-            blackhole {
-            }
-        }
-        route6 2A04:EBC0:700::/40 {
-            blackhole {
-            }
-        }
-        route6 2A04:EBC0:714::/48 {
-            blackhole {
-            }
-        }
-        route6 2A04:EBC0:766::/48 {
             blackhole {
             }
         }
