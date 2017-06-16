@@ -32,9 +32,6 @@ interfaces {
         speed auto
     }
     ethernet eth1 {
-        address 185.61.113.145/28
-        address 2A04:EBC0:766:117::1/64
-        address 185.61.113.129/28
         description "to swpole1"
         duplex auto
         poe {
@@ -270,12 +267,6 @@ protocols {
             }
             update-source lo
         }
-        network 185.61.113.128/28 {
-            route-map originated-internal-v4-map
-        }
-        network 185.61.113.144/28 {
-            route-map originated-internal-v4-map
-        }
         parameters {
             default {
                 no-ipv4-unicast
@@ -310,14 +301,6 @@ protocols {
         }
     }
     static {
-        route 185.61.113.128/28 {
-            blackhole {
-            }
-        }
-        route 185.61.113.144/28 {
-            blackhole {
-            }
-        }
         route6 2A04:EBC0:766:116::/64 {
             blackhole {
             }
@@ -332,26 +315,6 @@ service {
     dhcp-server {
         disabled false
         hostfile-update disable
-        shared-network-name pole-devices {
-            authoritative enable
-            subnet 185.61.113.144/28 {
-                default-router 185.61.113.145
-                dns-server 185.61.112.98
-                dns-server 185.19.148.98
-                lease 3600
-                start 185.61.113.146 {
-                    stop 185.61.113.158
-                }
-                static-mapping adsb {
-                    ip-address 185.61.113.152
-                    mac-address b8:27:eb:52:8d:11
-                }
-                static-mapping cctvpole1 {
-                    ip-address 185.61.113.156
-                    mac-address c0:56:e3:ef:a7:60
-                }
-            }
-        }
         use-dnsmasq disable
     }
     gui {
