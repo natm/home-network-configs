@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 13:32:12 UTC Fri Jun 16 2017 by nat
-! NVRAM config last updated at 13:53:19 UTC Fri Jun 16 2017 by nat
+! Last configuration change at 16:41:51 UTC Fri Jun 16 2017 by nat
+! NVRAM config last updated at 16:42:05 UTC Fri Jun 16 2017 by nat
 !
 version 12.2
 no service pad
@@ -86,7 +86,6 @@ ip ssh version 2
 interface Loopback0
  ip address 185.61.112.65 255.255.255.255
  ipv6 address 2A04:EBC0:766:1::65/128
- ipv6 ospf 1 area 1
 !
 interface GigabitEthernet1/0/1
  description to-rt2-at-pole
@@ -300,7 +299,6 @@ interface Vlan29
  ip address 185.61.112.90 255.255.255.252
  ip ospf network point-to-point
  ipv6 address 2A04:EBC0:766:2:3::2/112
- ipv6 ospf 1 area 1
 !
 interface Vlan40
  no ip address
@@ -330,7 +328,6 @@ interface Vlan70
  ip address 185.61.112.85 255.255.255.252
  ip ospf network point-to-point
  ipv6 address 2A04:EBC0:766:2:2::1/112
- ipv6 ospf 1 area 1
 !
 interface Vlan400
  description nat-test-19
@@ -342,39 +339,21 @@ interface Vlan991
 router ospf 1
  router-id 185.61.112.65
  log-adjacency-changes
- network 185.61.112.65 0.0.0.0 area 1
- network 185.61.112.84 0.0.0.3 area 1
- network 185.61.112.88 0.0.0.3 area 1
+ network 185.61.112.65 0.0.0.0 area 0
+ network 185.61.112.88 0.0.0.3 area 0
 !
-router bgp 60036
+router bgp 30746
+ bgp router-id 185.61.112.65
  no bgp default ipv4-unicast
  bgp log-neighbor-changes
  neighbor ibgp-v4 peer-group
- neighbor ibgp-v4 remote-as 60036
+ neighbor ibgp-v4 remote-as 30746
  neighbor ibgp-v4 update-source Loopback0
  neighbor ibgp-v6 peer-group
- neighbor ibgp-v6 remote-as 60036
+ neighbor ibgp-v6 remote-as 30746
  neighbor ibgp-v6 update-source Loopback0
- neighbor 2A04:EBC0:748:1::1 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::66 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::70 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::71 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:1::72 peer-group ibgp-v6
- neighbor 2A04:EBC0:766:2:1::2 remote-as 60036
- neighbor 2A04:EBC0:766:2:1::2 description homesvc0
- neighbor 2A04:EBC0:766:2:1::2 shutdown
- neighbor 2A04:EBC0:766:2:2::2 remote-as 60036
- neighbor 2A04:EBC0:766:2:2::2 description pve1
- neighbor 185.19.148.1 peer-group ibgp-v4
- neighbor 185.19.148.2 peer-group ibgp-v4
- neighbor 185.19.148.3 peer-group ibgp-v4
- neighbor 185.19.148.5 peer-group ibgp-v4
- neighbor 185.61.112.70 peer-group ibgp-v4
- neighbor 185.61.112.71 peer-group ibgp-v4
- neighbor 185.61.112.72 peer-group ibgp-v4
- neighbor 185.61.112.82 remote-as 60036
- neighbor 185.61.112.82 shutdown
- neighbor 185.61.112.86 remote-as 60036
+ neighbor 185.61.112.64 peer-group ibgp-v4
+ neighbor 185.61.112.86 remote-as 30746
  neighbor 185.61.112.86 description pve1
  !
  address-family ipv4
@@ -382,16 +361,7 @@ router bgp 60036
   neighbor ibgp-v4 send-community
   neighbor ibgp-v4 next-hop-self
   neighbor ibgp-v4 maximum-prefix 1000
-  neighbor 185.19.148.1 activate
-  neighbor 185.19.148.2 activate
-  neighbor 185.19.148.3 activate
-  neighbor 185.19.148.5 activate
-  neighbor 185.61.112.70 activate
-  neighbor 185.61.112.71 activate
-  neighbor 185.61.112.72 activate
-  neighbor 185.61.112.82 activate
-  neighbor 185.61.112.82 route-reflector-client
-  neighbor 185.61.112.82 maximum-prefix 50
+  neighbor 185.61.112.64 activate
   neighbor 185.61.112.86 activate
   neighbor 185.61.112.86 route-reflector-client
   neighbor 185.61.112.86 maximum-prefix 50
@@ -412,43 +382,8 @@ router bgp 60036
   network 185.61.113.176 mask 255.255.255.240 route-map originated-internal-v4-map
   network 185.61.113.192 mask 255.255.255.192 route-map originated-internal-v4-map
  exit-address-family
- !
- address-family ipv6
-  neighbor ibgp-v6 send-community
-  neighbor ibgp-v6 next-hop-self
-  neighbor ibgp-v6 maximum-prefix 1000
-  neighbor 2A04:EBC0:748:1::1 activate
-  neighbor 2A04:EBC0:766:1::66 activate
-  neighbor 2A04:EBC0:766:1::70 activate
-  neighbor 2A04:EBC0:766:1::71 activate
-  neighbor 2A04:EBC0:766:1::72 activate
-  neighbor 2A04:EBC0:766:2:1::2 activate
-  neighbor 2A04:EBC0:766:2:1::2 route-reflector-client
-  neighbor 2A04:EBC0:766:2:1::2 maximum-prefix 50
-  neighbor 2A04:EBC0:766:2:2::2 activate
-  neighbor 2A04:EBC0:766:2:2::2 route-reflector-client
-  neighbor 2A04:EBC0:766:2:2::2 maximum-prefix 50
-  network 2A04:EBC0:766:2:1::/112 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:2:2::/112 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:2:4::/112 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:109::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:110::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:111::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:112::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:114::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:115::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:118::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:119::/64 route-map originated-internal-v6-map
-  network 2A04:EBC0:766:142::/64 route-map originated-internal-v6-map
- exit-address-family
 !
 ip classless
-ip route 54.230.57.176 255.255.255.255 192.0.2.1 tag 666
-ip route 66.67.86.255 255.255.255.255 192.0.2.1 tag 666
-ip route 84.28.128.245 255.255.255.255 Null0 tag 666
-ip route 89.129.71.78 255.255.255.255 192.0.2.1 tag 666
-ip route 113.17.184.150 255.255.255.255 192.0.2.1 tag 666
-ip route 185.61.112.20 255.255.255.255 192.0.2.1 tag 666
 ip route 185.61.112.32 255.255.255.224 Null0
 ip route 185.61.112.80 255.255.255.252 Null0
 ip route 185.61.112.84 255.255.255.252 Null0
@@ -464,7 +399,6 @@ ip route 185.61.113.160 255.255.255.240 Null0
 ip route 185.61.113.176 255.255.255.240 Null0
 ip route 185.61.113.192 255.255.255.192 Null0
 ip route 192.0.2.1 255.255.255.255 Null0
-ip route 193.250.10.150 255.255.255.255 192.0.2.1 tag 666
 no ip http server
 no ip http secure-server
 !
@@ -490,35 +424,35 @@ ipv6 router ospf 1
 !
 !
 route-map downstream-60035-in-v6-map permit 10
- set community 60036:4003 60036:9000
+ set community 30746:4003 30746:9000
 !
 route-map downstream-60035-in-v4-map permit 10
- set community 60036:4003 60036:9000
+ set community 30746:4003 30746:9000
 !
 route-map internal-static-v4-map permit 10
  match tag 300
- set community 60036:4003
+ set community 30746:4003
 !
 route-map originated-supernet-v4-map permit 10
- set community 60036:4003 60036:8000 60036:8001
+ set community 30746:4003 30746:8000 30746:8001
 !
 route-map originated-supernet-v6-map permit 10
- set community 60036:4003 60036:8000 60036:8001
+ set community 30746:4003 30746:8000 30746:8001
 !
 route-map originated-internal-v4-map permit 10
- set community 60036:4003 60036:8000 60036:8002
+ set community 30746:4003 30746:8000 30746:8002
 !
 route-map originated-internal-v6-map permit 10
- set community 60036:4003 60036:8000 60036:8002
+ set community 30746:4003 30746:8000 30746:8002
 !
 route-map rtbh-v4-map permit 10
  match tag 666
  set ip next-hop 192.0.2.1
  set origin igp
- set community 60036:666 60036:4003 no-export
+ set community 30746:666 30746:4003 no-export
 !
 route-map originated-container-v4-map permit 10
- set community 60036:4003 60036:8000 60036:8003
+ set community 30746:4003 30746:8000 30746:8003
 !
 !
 snmp-server community <configuration removed>
