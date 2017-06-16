@@ -174,6 +174,27 @@ protocols {
             remote-as 60036
             update-source 185.61.112.71
         }
+        neighbor 185.19.148.2 {
+            description rt1.cowshed
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.61.112.71
+        }
+        neighbor 185.19.148.3 {
+            description rt3.gorras
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.61.112.71
+        }
+        neighbor 185.19.148.5 {
+            description rt1.jordanston
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.61.112.71
+        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
