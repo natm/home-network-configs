@@ -81,8 +81,6 @@ interfaces {
         }
     }
     ethernet eth2 {
-        address 185.19.148.57/30
-        description svc1.gorras
         duplex auto
         ip {
         }
@@ -99,13 +97,16 @@ interfaces {
         ip {
             ospf {
                 cost 1
-                network point-to-point
+                dead-interval 40
+                hello-interval 10
+                network broadcast
+                priority 1
+                retransmit-interval 5
+                transmit-delay 1
             }
         }
         ipv6 {
-            ospfv3 {
-                cost 1
-            }
+            dup-addr-detect-transmits 1
         }
         poe {
             output off
@@ -277,13 +278,6 @@ protocols {
             remote-as 60036
             update-source 185.61.112.70
         }
-        neighbor 185.19.148.58 {
-            description svc1.gorras
-            remote-as 64512
-            soft-reconfiguration {
-                inbound
-            }
-        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
@@ -423,7 +417,6 @@ protocols {
             interface eth1
             interface eth4
             interface eth0
-            interface eth3
         }
         parameters {
             router-id 185.61.112.70
@@ -510,7 +503,10 @@ protocols {
 }
 service {
     dhcp-server {
+        disabled false
+        hostfile-update disable
         shared-network-name adamhelena {
+            authoritative disable
             subnet 195.177.252.16/30 {
                 default-router 195.177.252.17
                 dns-server 185.19.148.98
@@ -522,6 +518,7 @@ service {
             }
         }
         shared-network-name janeken {
+            authoritative disable
             subnet 195.177.252.12/30 {
                 default-router 195.177.252.13
                 dns-server 185.19.148.98
@@ -533,6 +530,7 @@ service {
             }
         }
         shared-network-name juliaken {
+            authoritative disable
             subnet 195.177.252.4/30 {
                 default-router 195.177.252.5
                 dns-server 185.19.148.98
@@ -555,9 +553,12 @@ service {
                 }
             }
         }
+        use-dnsmasq disable
     }
     gui {
+        http-port 80
         https-port 443
+        older-ciphers enable
     }
     lldp {
         interface all {
@@ -612,6 +613,7 @@ system {
         }
     }
     offload {
+        hwnat disable
         ipsec enable
         ipv4 {
             forwarding enable
