@@ -790,7 +790,16 @@ protocols {
     bgp 60036 {
         address-family {
             ipv6-unicast {
+                network 2A04:EBC0:700::/40 {
+                    route-map originated-supernet-v6-map
+                }
+                network 2A04:EBC0:714::/48 {
+                    route-map originated-supernet-v6-map
+                }
                 network 2A04:EBC0:748::/48 {
+                    route-map originated-supernet-v6-map
+                }
+                network 2A04:EBC0:766::/48 {
                     route-map originated-supernet-v6-map
                 }
                 network 2a04:ebc0:714:201::/64 {
@@ -996,6 +1005,9 @@ protocols {
             }
             update-source 2a04:ec40:e004::1
         }
+        network 185.19.148.0/23 {
+            route-map originated-supernet-v4-map
+        }
         network 185.19.148.0/24 {
             route-map originated-supernet-v4-map
         }
@@ -1012,6 +1024,21 @@ protocols {
         }
         network 185.19.148.112/28 {
             route-map originated-internal-v4-map
+        }
+        network 185.61.112.0/22 {
+            route-map originated-supernet-v4-map
+        }
+        network 185.61.112.0/24 {
+            route-map originated-supernet-v4-map
+        }
+        network 185.61.113.0/24 {
+            route-map originated-supernet-v4-map
+        }
+        network 185.61.114.0/24 {
+            route-map originated-supernet-v4-map
+        }
+        network 185.61.115.0/24 {
+            route-map originated-supernet-v4-map
         }
         network 195.177.252.0/24 {
             route-map originated-supernet-v4-map
@@ -1207,6 +1234,10 @@ protocols {
                 description anycastddos
             }
         }
+        route 185.19.148.0/23 {
+            blackhole {
+            }
+        }
         route 185.19.148.0/24 {
             blackhole {
             }
@@ -1216,6 +1247,26 @@ protocols {
             }
         }
         route 185.19.148.112/28 {
+            blackhole {
+            }
+        }
+        route 185.61.112.0/22 {
+            blackhole {
+            }
+        }
+        route 185.61.112.0/24 {
+            blackhole {
+            }
+        }
+        route 185.61.113.0/24 {
+            blackhole {
+            }
+        }
+        route 185.61.114.0/24 {
+            blackhole {
+            }
+        }
+        route 185.61.115.0/24 {
             blackhole {
             }
         }
@@ -1237,7 +1288,19 @@ protocols {
             blackhole {
             }
         }
+        route6 2A04:EBC0:700::/40 {
+            blackhole {
+            }
+        }
+        route6 2A04:EBC0:714::/48 {
+            blackhole {
+            }
+        }
         route6 2A04:EBC0:748::/48 {
+            blackhole {
+            }
+        }
+        route6 2A04:EBC0:766::/48 {
             blackhole {
             }
         }
