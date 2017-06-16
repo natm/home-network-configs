@@ -358,17 +358,8 @@ protocols {
         network 185.19.148.56/30 {
             route-map originated-internal-v4-map
         }
-        network 185.61.112.0/22 {
-            route-map originated-supernet-v4-map
-        }
-        network 185.61.112.0/24 {
-            route-map originated-supernet-v4-map
-        }
         network 185.61.112.104/29 {
             route-map originated-internal-v4-map
-        }
-        network 185.61.113.0/24 {
-            route-map originated-supernet-v4-map
         }
         network 185.61.113.64/30 {
             route-map originated-internal-v4-map
