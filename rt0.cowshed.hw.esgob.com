@@ -36,6 +36,12 @@ firewall {
             address 193.47.147.0/24
             description ""
         }
+        address-group servicenodes {
+            address 185.19.148.54
+            address 185.19.148.58
+            address 185.19.148.62
+            description ""
+        }
         address-group trusted_nat {
             address 185.19.150.0/24
             address 185.61.112.0/23
@@ -410,6 +416,24 @@ firewall {
                     address-group dotwaffle
                 }
             }
+            state {
+                established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
+        rule 22 {
+            action accept
+            description "ssh to servicenodes"
+            destination {
+                group {
+                    address-group servicenodes
+                }
+                port 22
+            }
+            log disable
+            protocol tcp
             state {
                 established enable
                 invalid disable
