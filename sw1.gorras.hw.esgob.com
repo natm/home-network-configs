@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 16:41:51 UTC Fri Jun 16 2017 by nat
-! NVRAM config last updated at 16:42:05 UTC Fri Jun 16 2017 by nat
+! Last configuration change at 21:16:19 UTC Sat Jun 24 2017 by nat
+! NVRAM config last updated at 21:16:35 UTC Sat Jun 24 2017 by nat
 !
 version 12.2
 no service pad
@@ -238,28 +238,24 @@ interface Vlan9
  ip address 185.61.113.1 255.255.255.224
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:109::1/64
 !
 interface Vlan10
  description wificlients-guests
  ip address 185.61.112.193 255.255.255.192
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:114::1/64
 !
 interface Vlan11
  description shed-local
  ip address 185.61.112.145 255.255.255.240
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:111::1/64
 !
 interface Vlan14
  description wificlients-guests
  ip address 185.61.113.193 255.255.255.192
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:110::1/64
 !
 interface Vlan15
  description treehouse
@@ -283,7 +279,6 @@ interface Vlan20
  description homewlc1mgmt
  ip address 185.61.112.93 255.255.255.252
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:2:4::1/112
 !
 interface Vlan21
  description homesvc1
@@ -308,14 +303,12 @@ interface Vlan41
  ip address 185.61.112.161 255.255.255.240
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:112::1/64
 !
 interface Vlan42
  description house-office
  ip address 185.61.112.33 255.255.255.224
  ip helper-address 185.61.112.82
  ip pim sparse-dense-mode
- ipv6 address 2A04:EBC0:766:142::1/64
 !
 interface Vlan60
  description house-office-dev1
