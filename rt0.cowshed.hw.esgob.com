@@ -637,7 +637,15 @@ interfaces {
         speed auto
     }
     ethernet eth7 {
+        address 185.19.148.89/30
+        description "temp to rt1.cowshed"
         duplex auto
+        ip {
+            ospf {
+                cost 10
+                network point-to-point
+            }
+        }
         speed auto
     }
     loopback lo {
@@ -1071,6 +1079,7 @@ protocols {
         area 0 {
             network 185.19.148.36/30
             network 185.19.148.1/32
+            network 185.19.148.88/30
         }
         parameters {
             abr-type cisco
