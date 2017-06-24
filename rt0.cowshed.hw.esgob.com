@@ -580,16 +580,10 @@ interfaces {
         speed auto
     }
     ethernet eth3 {
-        address 185.19.148.113/28
         address 2a04:ebc0:748:201::1/64
         description "sw0 port 26"
         duplex auto
         speed auto
-        vif 201 {
-            address 195.177.252.21/30
-            address 2a04:ebc0:714:201::1/64
-            description lesmorris
-        }
     }
     ethernet eth4 {
         address 185.19.148.37/30
@@ -1054,9 +1048,6 @@ protocols {
         }
         network 185.19.148.96/30 {
         }
-        network 185.19.148.112/28 {
-            route-map originated-internal-v4-map
-        }
         network 185.61.114.0/24 {
             route-map originated-supernet-v4-map
         }
@@ -1065,9 +1056,6 @@ protocols {
         }
         network 195.177.252.0/24 {
             route-map originated-supernet-v4-map
-        }
-        network 195.177.252.20/30 {
-            route-map originated-internal-v4-map
         }
         parameters {
             default {
@@ -1267,10 +1255,6 @@ protocols {
             }
         }
         route 185.19.148.32/30 {
-            blackhole {
-            }
-        }
-        route 185.19.148.112/28 {
             blackhole {
             }
         }
