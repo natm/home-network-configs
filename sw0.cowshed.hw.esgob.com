@@ -59,7 +59,7 @@ vlan 1
 vlan 201 
    name "lesmorris" 
    untagged 14 
-   tagged 26 
+   tagged 25-26 
    exit 
 ip authorized-managers 185.61.112.0 255.255.252.0 
 ip authorized-managers 185.19.148.0 255.255.255.0 
