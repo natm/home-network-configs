@@ -227,7 +227,7 @@ sysname homewlc1
 stats-timer realtime 5
 stats-timer normal 180
 time ntp interval 3600
-time ntp server 1 195.66.241.3
+time ntp server 1 185.19.148.97
 rf-profile create 802.11a High-Client-Density-802.11a
 rf-profile create 802.11b High-Client-Density-802.11bg
 rf-profile create 802.11a Low-Client-Density-802.11a
