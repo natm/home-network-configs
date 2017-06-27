@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 21:16:19 UTC Sat Jun 24 2017 by nat
-! NVRAM config last updated at 21:16:35 UTC Sat Jun 24 2017 by nat
+! Last configuration change at 11:46:44 UTC Tue Jun 27 2017 by nat
+! NVRAM config last updated at 11:46:53 UTC Tue Jun 27 2017 by nat
 !
 version 12.2
 no service pad
@@ -377,6 +377,7 @@ router bgp 30746
  exit-address-family
 !
 ip classless
+ip route 185.19.148.97 255.255.255.255 185.61.112.82 tag 300
 ip route 185.61.112.32 255.255.255.224 Null0
 ip route 185.61.112.80 255.255.255.252 Null0
 ip route 185.61.112.84 255.255.255.252 Null0
