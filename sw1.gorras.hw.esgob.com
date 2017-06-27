@@ -7,8 +7,8 @@
 ! 
 ! 
 !
-! Last configuration change at 11:46:44 UTC Tue Jun 27 2017 by nat
-! NVRAM config last updated at 11:46:53 UTC Tue Jun 27 2017 by nat
+! Last configuration change at 12:25:51 UTC Tue Jun 27 2017 by nat
+! NVRAM config last updated at 12:25:53 UTC Tue Jun 27 2017 by nat
 !
 version 12.2
 no service pad
@@ -462,6 +462,6 @@ line vty 5 15
  login local
 !
 ntp source Loopback0
-ntp server 185.61.112.97
+ntp server 185.19.148.97
 end
 
