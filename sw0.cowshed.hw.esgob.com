@@ -45,7 +45,7 @@ interface 14
    name "Cust: Les and Ann Morris" 
 exit
 ip default-gateway 185.19.148.113 
-sntp server 185.61.112.97 
+sntp server 185.19.148.97 
 timesync sntp 
 sntp unicast 
 logging 185.61.112.99 
@@ -63,6 +63,7 @@ vlan 201
    exit 
 ip authorized-managers 185.61.112.0 255.255.252.0 
 ip authorized-managers 185.19.148.0 255.255.255.0 
+ip authorized-managers 195.177.252.0 255.255.252.0 
 ip ssh
 password manager
 password operator
