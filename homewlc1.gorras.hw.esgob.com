@@ -73,6 +73,7 @@ advanced eap bcast-key-interval 3600
 advanced 802.11-abgn pak-rssi-location threshold -100
 advanced 802.11-abgn pak-rssi-location trigger-threshold 10
 advanced 802.11-abgn pak-rssi-location reset-threshold 8
+advanced 802.11-abgn pak-rssi-location ntp 185.19.148.97
 advanced 802.11-abgn pak-rssi-location timeout 3
 advanced hotspot cmbk-delay 50
 Cisco Public Safety is not allowed to set in this domain
