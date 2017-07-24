@@ -24,6 +24,11 @@ firewall {
             address 88.198.24.72
             description ""
         }
+        address-group downstream_as30746 {
+            address 193.47.147.0/24
+            address 185.61.112.0/23
+            description ""
+        }
         address-group mosh_servers {
             address 185.61.112.98
             description ""
@@ -90,21 +95,6 @@ firewall {
     name transit4_in {
         default-action drop
         description ""
-        rule 1 {
-            action drop
-            description "drop all NTP"
-            destination {
-                port 123
-            }
-            log disable
-            protocol udp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
         rule 2 {
             action accept
             description established
@@ -161,268 +151,6 @@ firewall {
                 related enable
             }
         }
-        rule 6 {
-            action accept
-            description "trusted from nat"
-            destination {
-                group {
-                }
-            }
-            log disable
-            protocol all
-            source {
-                group {
-                    address-group trusted_nat
-                }
-            }
-            state {
-                established disable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 7 {
-            action accept
-            description "No filtering to legacy networks"
-            destination {
-                group {
-                    network-group no_filter_nets
-                }
-            }
-            log disable
-            protocol all
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 8 {
-            action accept
-            description "CCTV from NVR"
-            destination {
-                group {
-                    address-group cctvnvr
-                    port-group cctvnvr_ports
-                }
-            }
-            log disable
-            protocol tcp_udp
-            source {
-                group {
-                }
-            }
-            state {
-                established disable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 9 {
-            action accept
-            description "ADSB web ui"
-            destination {
-                group {
-                    address-group adsb
-                }
-                port 80
-            }
-            log disable
-            protocol tcp
-            state {
-                invalid disable
-                related disable
-            }
-        }
-        rule 10 {
-            action accept
-            description "http site redirects on homesvc1"
-            destination {
-                address 185.61.112.82
-                port 80
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 11 {
-            action accept
-            description "ssl sites on homesvc1"
-            destination {
-                address 185.61.112.82
-                port 443
-            }
-            log disable
-            protocol tcp
-            state {
-                established disable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 12 {
-            action accept
-            description "ssh to homesvc"
-            destination {
-                address 185.61.112.82
-                port 22
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 14 {
-            action accept
-            description "public access to mqtt (owntracks)"
-            destination {
-                address 185.61.112.82
-                port 1883
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 15 {
-            action accept
-            description "mgmt access to pve1"
-            destination {
-                address 185.61.112.86
-                port 8006
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 16 {
-            action accept
-            description "ssh to pve1"
-            destination {
-                address 185.61.112.86
-                port 22
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 17 {
-            action accept
-            description "ssh to docker1"
-            destination {
-                address 185.61.112.134
-                port 22
-            }
-            log disable
-            protocol tcp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 18 {
-            action accept
-            description "temporary DNS on loft"
-            destination {
-                address 185.61.112.37
-                port 53
-            }
-            log disable
-            protocol tcp_udp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 19 {
-            action accept
-            description "legacy anycast DNS"
-            destination {
-                address 193.47.147.100
-                port 53
-            }
-            log disable
-            protocol tcp_udp
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 20 {
-            action accept
-            description "dotwaffle access to WLC SNMP"
-            destination {
-                address 185.61.112.94
-                port 161
-            }
-            log disable
-            protocol udp
-            source {
-                group {
-                    address-group dotwaffle
-                }
-            }
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
-        rule 21 {
-            action accept
-            description "dotwaffle access to WLC SSL"
-            destination {
-                address 185.61.112.94
-                port 443
-            }
-            log disable
-            protocol tcp
-            source {
-                group {
-                    address-group dotwaffle
-                }
-            }
-            state {
-                established enable
-                invalid disable
-                new enable
-                related disable
-            }
-        }
         rule 22 {
             action accept
             description "ssh to servicenodes"
@@ -436,6 +164,38 @@ firewall {
             protocol tcp
             state {
                 established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
+        rule 23 {
+            action accept
+            description "allow to nigels anything"
+            destination {
+                address 195.177.252.30
+            }
+            log disable
+            protocol all
+            state {
+                established enable
+                invalid disable
+                new enable
+                related disable
+            }
+        }
+        rule 24 {
+            action accept
+            description "allow any to as30746"
+            destination {
+                group {
+                    address-group downstream_as30746
+                }
+            }
+            log disable
+            protocol all
+            state {
+                established disable
                 invalid disable
                 new enable
                 related disable
@@ -586,8 +346,6 @@ interfaces {
         speed auto
     }
     ethernet eth4 {
-        address 185.19.148.37/30
-        address 2A04:EBC0:748:2:2::1/112
         description "Core: PtP Cowshed to LlwynYGorras"
         duplex auto
         ip {
@@ -614,14 +372,8 @@ interfaces {
             }
         }
         speed auto
-        vif 37 {
-            address 185.19.148.33/30
-            description ptp0-mgmt
-        }
     }
     ethernet eth5 {
-        address 185.19.148.53/30
-        address 2a04:ebc0:748:2:6::1/112
         description svc1
         duplex auto
         speed auto
@@ -895,13 +647,6 @@ protocols {
         neighbor 185.19.148.42 {
             remote-as 65534
         }
-        neighbor 185.19.148.54 {
-            description svc1.cowshed
-            remote-as 64512
-            soft-reconfiguration {
-                inbound
-            }
-        }
         neighbor 185.61.112.65 {
             maximum-prefix 1000
             nexthop-self
@@ -1031,12 +776,6 @@ protocols {
             }
             update-source 2a04:ec40:e004::1
         }
-        network 185.19.148.0/23 {
-            route-map originated-supernet-v4-map
-        }
-        network 185.19.148.0/24 {
-            route-map originated-supernet-v4-map
-        }
         network 185.19.148.32/30 {
             route-map originated-internal-v4-map
         }
@@ -1048,15 +787,6 @@ protocols {
         }
         network 185.19.148.96/30 {
         }
-        network 185.61.114.0/24 {
-            route-map originated-supernet-v4-map
-        }
-        network 185.61.115.0/24 {
-            route-map originated-supernet-v4-map
-        }
-        network 195.177.252.0/24 {
-            route-map originated-supernet-v4-map
-        }
         parameters {
             default {
             }
@@ -1065,7 +795,6 @@ protocols {
     }
     ospf {
         area 0 {
-            network 185.19.148.36/30
             network 185.19.148.1/32
             network 185.19.148.88/30
         }
@@ -1126,144 +855,12 @@ protocols {
             next-hop-interface pppoe1 {
             }
         }
-        route 2.91.150.196/32 {
-            blackhole {
-                description anycastddos
+        route 185.19.148.98/32 {
+            next-hop 185.19.148.90 {
             }
         }
-        route 23.121.39.118/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 24.218.134.41/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 50.171.57.155/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 51.39.104.63/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 67.1.203.106/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 73.69.110.74/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 73.231.144.189/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 80.241.218.216/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 82.26.151.227/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 84.46.122.214/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 87.109.145.95/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 98.206.149.108/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 103.230.138.242/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 104.8.130.222/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 104.156.236.55/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 107.152.104.154/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 118.211.24.228/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 143.179.27.179/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 167.57.114.27/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 172.56.20.21/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 172.110.128.140/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 174.108.107.19/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 184.158.75.30/32 {
-            blackhole {
-                description anycastddos
-            }
-        }
-        route 185.19.148.0/23 {
-            blackhole {
-            }
-        }
-        route 185.19.148.0/24 {
-            blackhole {
-            }
-        }
-        route 185.19.148.32/30 {
-            blackhole {
-            }
-        }
-        route 185.61.114.0/24 {
-            blackhole {
-            }
-        }
-        route 185.61.115.0/24 {
-            blackhole {
+        route 185.19.149.98/32 {
+            next-hop 185.19.148.90 {
             }
         }
         route 186.129.138.69/32 {
@@ -1278,10 +875,6 @@ protocols {
         route 195.147.56.40/32 {
             blackhole {
                 description anycastddos
-            }
-        }
-        route 195.177.252.0/24 {
-            blackhole {
             }
         }
         route6 2A04:EBC0:700::/40 {
@@ -1312,44 +905,8 @@ protocols {
 }
 service {
     dhcp-server {
-        disabled false
+        disabled true
         hostfile-update disable
-        shared-network-name lesmorris {
-            authoritative disable
-            subnet 195.177.252.20/30 {
-                default-router 195.177.252.21
-                dns-server 185.19.148.98
-                dns-server 185.19.149.98
-                lease 3600
-                start 195.177.252.22 {
-                    stop 195.177.252.22
-                }
-                static-mapping lesrtr {
-                    ip-address 195.177.252.22
-                    mac-address a4:2b:b0:d9:fa:e0
-                }
-            }
-        }
-        shared-network-name sw0-general {
-            authoritative disable
-            subnet 185.19.148.112/28 {
-                default-router 185.19.148.113
-                dns-server 185.19.148.98
-                dns-server 185.61.112.98
-                lease 3600
-                start 185.19.148.114 {
-                    stop 185.19.148.127
-                }
-                static-mapping ap0 {
-                    ip-address 185.19.148.118
-                    mac-address 28:94:0f:58:c9:10
-                }
-                static-mapping atlas1 {
-                    ip-address 185.19.148.117
-                    mac-address 64:66:b3:b0:e1:0a
-                }
-            }
-        }
         use-dnsmasq disable
     }
     gui {
@@ -1406,7 +963,7 @@ system {
     name-server 185.19.148.98
     name-server 185.61.112.98
     ntp {
-        server 185.61.112.97 {
+        server 185.19.148.97 {
         }
     }
     offload {
