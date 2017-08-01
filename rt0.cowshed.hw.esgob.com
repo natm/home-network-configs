@@ -389,7 +389,12 @@ interfaces {
         ip {
             ospf {
                 cost 10
+                dead-interval 40
+                hello-interval 10
                 network point-to-point
+                priority 1
+                retransmit-interval 5
+                transmit-delay 1
             }
         }
         speed auto
@@ -813,6 +818,10 @@ protocols {
         }
     }
     static {
+        interface-route 0.0.0.0/0 {
+            next-hop-interface pppoe1 {
+            }
+        }
         interface-route 90.155.53.60/32 {
             next-hop-interface pppoe0 {
             }
