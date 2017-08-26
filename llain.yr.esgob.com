@@ -195,33 +195,16 @@ firewall {
 interfaces {
     ethernet eth0 {
         address 185.19.150.193/26
-        address 2a04:ec40:e000:0::/64
         description house
         duplex auto
         ipv6 {
             dup-addr-detect-transmits 1
-            router-advert {
-                cur-hop-limit 64
-                link-mtu 0
-                managed-flag false
-                max-interval 600
-                other-config-flag false
-                prefix ::/64 {
-                    autonomous-flag true
-                    on-link-flag true
-                    valid-lifetime 2592000
-                }
-                reachable-time 0
-                retrans-timer 0
-                send-advert true
-            }
         }
         speed auto
     }
     ethernet eth1 {
         description fttc
         duplex auto
-        mtu 1500
         pppoe 0 {
             default-route auto
             firewall {
@@ -250,6 +233,9 @@ interfaces {
         speed auto
     }
     ethernet eth2 {
+        address 185.19.148.42/30
+        description wireless
+        disable
         duplex auto
         speed auto
     }
@@ -272,8 +258,8 @@ service {
             authoritative disable
             subnet 185.19.150.192/26 {
                 default-router 185.19.150.193
-                dns-server 217.169.20.20
-                dns-server 217.169.20.21
+                dns-server 8.8.8.8
+                dns-server 8.8.4.4
                 lease 14400
                 start 185.19.150.210 {
                     stop 185.19.150.254
@@ -283,6 +269,22 @@ service {
     }
     gui {
         https-port 443
+    }
+    nat {
+        rule 5000 {
+            description "nat via aaisp"
+            log disable
+            outbound-interface pppoe0
+            protocol all
+            type masquerade
+        }
+        rule 5001 {
+            description "nat via wireless"
+            log disable
+            outbound-interface eth2
+            protocol all
+            type masquerade
+        }
     }
     ssh {
         port 22
