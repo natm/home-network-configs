@@ -233,9 +233,7 @@ interfaces {
         speed auto
     }
     ethernet eth2 {
-        address 185.19.148.42/30
         description wireless
-        disable
         duplex auto
         speed auto
     }
