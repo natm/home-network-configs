@@ -194,7 +194,7 @@ firewall {
 }
 interfaces {
     ethernet eth0 {
-        address 185.19.150.193/26
+        address 192.168.0.1/24
         description house
         duplex auto
         ipv6 {
@@ -254,15 +254,15 @@ service {
     dhcp-server {
         disabled false
         hostfile-update disable
-        shared-network-name house {
+        shared-network-name housetemp {
             authoritative disable
-            subnet 185.19.150.192/26 {
-                default-router 185.19.150.193
+            subnet 192.168.0.0/24 {
+                default-router 192.168.0.1
                 dns-server 8.8.8.8
                 dns-server 8.8.4.4
-                lease 14400
-                start 185.19.150.210 {
-                    stop 185.19.150.254
+                lease 86400
+                start 192.168.0.100 {
+                    stop 192.168.0.200
                 }
             }
         }
@@ -317,8 +317,7 @@ system {
             level admin
         }
     }
-    name-server 217.169.20.20
-    name-server 217.169.20.21
+    name-server 8.8.8.8
     ntp {
         server 0.ubnt.pool.ntp.org {
         }
