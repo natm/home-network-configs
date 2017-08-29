@@ -649,6 +649,13 @@ protocols {
             remote-as 60036
             update-source 185.19.148.1
         }
+        neighbor 185.19.148.8 {
+            description rt1.maildy
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.19.148.1
+        }
         neighbor 185.19.148.9 {
             description rt1.treddafydd
             maximum-prefix 1000
