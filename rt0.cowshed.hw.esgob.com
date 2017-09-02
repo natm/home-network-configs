@@ -663,6 +663,34 @@ protocols {
             remote-as 60036
             update-source 185.19.148.1
         }
+        neighbor 185.19.148.11 {
+            description reflector1
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.19.148.1
+        }
+        neighbor 185.19.148.12 {
+            description reflector2
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.19.148.1
+        }
+        neighbor 185.19.148.13 {
+            description reflector3
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.19.148.1
+        }
+        neighbor 185.19.148.14 {
+            description hotspotgw1
+            maximum-prefix 1000
+            nexthop-self
+            remote-as 60036
+            update-source 185.19.148.1
+        }
         neighbor 185.19.148.42 {
             remote-as 65534
         }
